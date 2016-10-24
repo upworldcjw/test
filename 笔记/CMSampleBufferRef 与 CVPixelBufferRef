@@ -1,0 +1,103 @@
+- (CMSampleBufferRef)cameraStreamingSession:(PLCameraStreamingSession *)session cameraSourceDidGetSampleBuffer:(CMSampleBufferRef)sampleBuffer{
+   
+    CVPixelBufferRef pixelBuffer = (CVPixelBufferRef)CMSampleBufferGetImageBuffer(sampleBuffer);
+    CVPixelBufferLockBaseAddress(pixelBuffer, 0);
+    
+    double dCost = 0.0;
+    
+    // 设置SDK上下文 , 需要与初始化SDK时的上下文一致
+    [EAGLContext setCurrentContext:_glContext];
+    
+    GLuint textureInputRGBAID;
+    glGenTextures(1, &textureInputRGBAID);
+    
+    GLuint textureOutputRGBAID;
+    glGenTextures(1, &textureOutputRGBAID);
+    
+    double dStart = CFAbsoluteTimeGetCurrent();
+    
+    int iWidth = (int)CVPixelBufferGetWidth(pixelBuffer);
+    int iHeight = (int)CVPixelBufferGetHeight(pixelBuffer);
+    
+    size_t iTop , iBottom , iLeft , iRight;
+    CVPixelBufferGetExtendedPixels(pixelBuffer, &iLeft, &iRight, &iTop, &iBottom);
+    
+    iWidth = iWidth + (int)iLeft + (int)iRight;
+    iHeight = iHeight + (int)iTop + (int)iBottom;
+    
+    unsigned char* baseAddress = CVPixelBufferGetBaseAddress(pixelBuffer);
+    
+    unsigned char* pRGBABytes = (unsigned char*)malloc(sizeof(unsigned char) * iWidth * iHeight * 4);
+    
+    // BGRA -> RGBA
+    st_result_t iRet = st_mobile_color_convert(baseAddress,
+                                               pRGBABytes,
+                                               iWidth,
+                                               iHeight,
+                                               ST_BGRA_RGBA);
+    
+    if (ST_OK == iRet) {
+        
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, textureInputRGBAID);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, iWidth, iHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, pRGBABytes);
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        glBindTexture(GL_TEXTURE_2D, 0);
+        
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, textureOutputRGBAID);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, iWidth, iHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
+        glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
+        glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
+        glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE );
+        glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE );
+        glBindTexture(GL_TEXTURE_2D, 0);
+        
+        iRet = st_mobile_beautify_process_texture(_hBeautify,
+                                                  textureInputRGBAID,
+                                                  iWidth,
+                                                  iHeight,
+                                                  textureOutputRGBAID);
+        
+        if (ST_OK != iRet) {
+            
+            NSLog(@"st_mobile_beautify_process_texture failed %d" , iRet);
+        }
+        
+    }else{
+        
+        NSLog(@"color convert BGRA -> RGBA failed.");
+    }
+    
+    free(pRGBABytes);
+    
+    dCost = CFAbsoluteTimeGetCurrent() - dStart;
+    
+//    printf("cost %f\n" , dCost * 1000);
+    
+    int iOrientation = self.session.cameraSource.cameraPosition
+    == PLCaptureDevicePositionFront ? 5 : 6;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+//        [self.lblSpeed setText:[NSString stringWithFormat:@"速度: %.0fms" ,dCost * 1000.0]];
+//        [self.lblCPU setText:[NSString stringWithFormat:@"CPU占用率: %.1f%%" , [self getCpuUsage]]];
+        
+        // texture has been deleted after render so just delete another one and the colorSpace will be released inside.
+        [self.preview renderWithTexture:
+         (_bPressingCompareBtn ? textureInputRGBAID : textureOutputRGBAID)
+                                   size:CGSizeMake(iHeight, iWidth)
+                                flipped:YES
+                             colorSpace:CGColorSpaceCreateDeviceRGB()
+                    applyingOrientation:iOrientation];
+        
+        // delete another one
+        glDeleteTextures(1 , (_bPressingCompareBtn ? &textureOutputRGBAID : &textureInputRGBAID));
+        
+    });
+    
+    CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
+    return sampleBuffer;
+//    return nil;

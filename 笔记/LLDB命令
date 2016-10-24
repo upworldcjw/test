@@ -1,0 +1,62 @@
+LLDB命令
+
+expression
+
+expression命令的作用是执行一个表达式，并将表达式返回的结果输出。expression的完整语法是这样的：
+
+expression <cmd-options> -- <expr>
+// 改变颜色
+  (lldb) expression -- self.view.backgroundColor = [UIColor redColor]
+  // 刷新界面
+  (lldb) expression -- (void)[CATransaction flush]
+
+  (lldb) expression -- self.view
+    (UIView *) $1 = 0x00007fe322c18a10
+
+
+
+
+image lookup –address
+
+当我们有一个地址，想查找这个地址具体对应的文件位置，可以使用image lookup --address，简写为image lookup -a e.g: 当我们发生一个crash
+
+2015-12-17 14:51:06.301 TLLDB[25086:246169] *** Terminating app due to uncaught exception 'NSRangeException',reason: '*** -[__NSArray0 objectAtIndex:]: index 1 beyond bounds for empty NSArray'
+*** First throw call stack:
+(
+    0   CoreFoundation                      0x000000010accde65 __exceptionPreprocess + 165
+    1   libobjc.A.dylib                     0x000000010a746deb objc_exception_throw + 48
+    2   CoreFoundation                      0x000000010ac7c395 -[__NSArray0 objectAtIndex:] + 101
+    3   TLLDB                               0x000000010a1c3e36 -[ViewController viewDidLoad] + 86
+    4   UIKit                               0x000000010b210f98 -[UIViewController loadViewIfRequired] + 1198
+    5   UIKit                               0x000000010b2112e7 -[UIViewController view] + 27
+
+我们可以看到是由于-[__NSArray0 objectAtIndex:]:超出边界而导致的crash，但是objectAtIndex:的代码到底在哪儿呢？
+
+(lldb) image lookup -a 0x000000010a1c3e36
+      Address: TLLDB[0x0000000100000e36] (TLLDB.__TEXT.__text + 246)
+      Summary: TLLDB`-[ViewController viewDidLoad] + 86 at ViewController.m:32
+
+根据0x000000010a1c3e36 -[ViewController viewDidLoad]里面的地址，使用image lookup --address查找，我们可以看到代码位置在ViewController.m里面的32行
+
+
+
+
+ 
+
+ image lookup –name
+
+当我们想查找一个方法或者符号的信息，比如所在文件位置等。我们可以使用image lookup --name，简写为image lookup -n。
+
+e.g: 刚刚遇到的真问题，某个第三方SDK用了一个我们项目里原有的第三方库，库里面对NSDictionary添加了category。也就是有2个class对NSDictionary添加了名字相同的category，项目中调用自己的category的地方实际走到了第三方SDK里面去了。最大的问题是，这2个同名category方法行为并不一致，导致出现bug
+
+现在问题来了，怎么寻找到底是哪个第三方SDK？方法完全包在.a里面。
+
+其实只需使用image lookup -n即可：
+
+(lldb) image lookup -n dictionaryWithXMLString:
+2 matches found in /Users/jiangliancheng/Library/Developer/Xcode/DerivedData/VideoIphone-aivsnqmlwjhxapdlvmdmrubbdxpq/Build/Products/Debug-iphoneos/BaiduIphoneVideo.app/BaiduIphoneVideo:
+        Address: BaiduIphoneVideo[0x00533a7c] (BaiduIphoneVideo.__TEXT.__text + 5414908)
+        Summary: BaiduIphoneVideo`+[NSDictionary(SAPIXmlDictionary) dictionaryWithXMLString:] atXmlDictionary.m
+         Module: file = "/Users/jiangliancheng/Library/Developer/Xcode/DerivedData/VideoIphone-aivsnqmlwjhxapdlvmdmrubbdxpq/Build/Products/Debug-iphoneos/BaiduIphoneVideo.app/BaiduIphoneVideo", arch = "armv7"
+    CompileUnit: id = {0x00000000}, file = "/Users/jiangliancheng/Development/Work/iOS_ShareLib/SharedLib/Srvcs/BDPassport4iOS/BDPassport4iOS/SAPI/Extensive/ThirdParty/XMLDictionary/XmlDictionary.m",language = "Objective-C"
+       Function: id   

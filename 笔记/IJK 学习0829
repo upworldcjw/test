@@ -1,0 +1,253 @@
+//IJKFFOptions
+IjkMediaPlayer ->mutex 
+IjkMediaPlayer ->ffplayer 
+
+FFPlayer->format_opts;
+FFPlayer->codec_opts;
+FFPlayer->sws_dict;
+FFPlayer->player_opts;
+FFPlayer->swr_opts;
+
+
+ijkmp_set_option_int ->ffp_set_option_int ->ffp_get_opt_dict
+										  ->av_dict_set_int
+
+
+
+//IJKFFMoviePlayerController
+
+init ->ijkmp_global_init->ffp_global_init
+
+void ffp_global_init()
+{
+    if (g_ffmpeg_global_inited)
+        return;
+
+    /* register all codecs, demux and protocols */
+    avcodec_register_all();
+#if CONFIG_AVDEVICE
+    avdevice_register_all();
+#endif
+#if CONFIG_AVFILTER
+    avfilter_register_all();
+#endif
+    av_register_all();
+
+    ijkav_register_all();
+
+    avformat_network_init();
+
+    av_lockmgr_register(lockmgr);
+    av_log_set_callback(ffp_log_callback_brief);
+
+    av_init_packet(&flush_pkt);
+    flush_pkt.data = (uint8_t *)&flush_pkt;
+
+    g_ffmpeg_global_inited = true;
+}
+
+
+ijkav_register_all -> IJK_REGISTER_DEMUXER(ijklivehook) ->ijk_ffijklivehook_demuxer->ijkav_register_input_format(ijk_ffijklivehook_demuxer)
+
+#define IJK_REGISTER_DEMUXER(x)                                         \
+    {                                                                   \
+        extern AVInputFormat ijkff_##x##_demuxer;                       \
+        ijkav_register_input_format(&ijkff_##x##_demuxer);              \
+    }
+
+
+  
+
+  ijkmp_ios_create
+
+  IjkMediaPlayer *ijkmp_ios_create(int (*msg_loop)(void*))
+{
+    IjkMediaPlayer *mp = ijkmp_create(msg_loop);
+    if (!mp)
+        goto fail;
+
+    mp->ffplayer->vout = SDL_VoutIos_CreateForGLES2();
+    if (!mp->ffplayer->vout)
+        goto fail;
+
+    mp->ffplayer->pipeline = ffpipeline_create_from_ios(mp->ffplayer);
+    if (!mp->ffplayer->pipeline)
+        goto fail;
+
+    return mp;
+
+fail:
+    ijkmp_dec_ref_p(&mp);
+    return NULL;
+}
+
+
+
+===== versions =====
+FFmpeg       : ff3.1--ijk0.6.0--20160715--001
+libavutil    : 55.27.100
+libavcodec   : 57.48.101
+libavformat  : 57.40.101
+libswscale   : 4.1.100
+libswresample: 2.1.100
+===== options =====
+player-opts : video-pictq-size             = 3
+player-opts : overlay-format               = fcc-_es2
+player-opts : max-fps                      = 30
+player-opts : framedrop                    = 0
+player-opts : videotoolbox-max-frame-width = 960
+player-opts : videotoolbox                 = 0
+player-opts : start-on-prepared            = 1
+format-opts : ijkinject-opaque             = 5475517456
+format-opts : ijkapplication               = 5477034656
+format-opts : user-agent                   = ijkplayer
+format-opts : auto_convert                 = 0
+format-opts : timeout                      = 30000000
+format-opts : reconnect                    = 1
+format-opts : safe                         = 0  
+
+
+http://pili-live-hdl.pengpengla.com/pepper/4_86223146752770310144e3634f8c_8-4249427723400773632c16d7f91_4.flv
+
+
+struct SDL_Vout {
+    SDL_mutex *mutex;
+
+    SDL_Class       *opaque_class;
+    SDL_Vout_Opaque *opaque;
+    SDL_VoutOverlay *(*create_overlay)(int width, int height, int frame_format, SDL_Vout *vout);
+    void (*free_l)(SDL_Vout *vout);
+    int (*display_overlay)(SDL_Vout *vout, SDL_VoutOverlay *overlay);
+
+    Uint32 overlay_format;
+};
+//硬件解码
+struct SDL_Vout_Opaque {
+    char dummy;
+};
+
+//软件解码
+struct SDL_Vout_Opaque {
+    IJKSDLGLView *gl_view;
+};
+
+
+struct SDL_VoutOverlay {
+    int w; /**< Read-only */
+    int h; /**< Read-only */
+    Uint32 format; /**< Read-only */
+    int planes; /**< Read-only */
+    Uint16 *pitches; /**< in bytes, Read-only */
+    Uint8 **pixels; /**< Read-write */
+
+    int is_private;
+
+    int sar_num;
+    int sar_den;
+
+    SDL_Class               *opaque_class;
+    SDL_VoutOverlay_Opaque  *opaque;
+
+    void    (*free_l)(SDL_VoutOverlay *overlay);
+    int     (*lock)(SDL_VoutOverlay *overlay);
+    int     (*unlock)(SDL_VoutOverlay *overlay);
+    void    (*unref)(SDL_VoutOverlay *overlay);
+
+    int     (*func_fill_frame)(SDL_VoutOverlay *overlay, const AVFrame *frame);
+};
+//硬件解码
+struct SDL_VoutOverlay_Opaque {
+    SDL_mutex *mutex;
+    CVPixelBufferRef pixel_buffer;
+    Uint16 pitches[AV_NUM_DATA_POINTERS];
+    Uint8 *pixels[AV_NUM_DATA_POINTERS];
+};
+//软件解码
+struct SDL_VoutOverlay_Opaque {
+    SDL_mutex *mutex;
+
+    AVFrame *managed_frame;
+    AVBufferRef *frame_buffer;
+    int planes;
+
+    AVFrame *linked_frame;
+
+    Uint16 pitches[AV_NUM_DATA_POINTERS];
+    Uint8 *pixels[AV_NUM_DATA_POINTERS];
+
+    int no_neon_warned;
+
+    struct SwsContext *img_convert_ctx;
+    int sws_flags;
+};
+//硬件解码逻辑
+
+AVFrame ->opaque(CVBufferRef)  填充到 SDL_VoutOverlay_Opaque ->pixel_buffer(CVPixelBufferRef)
+
+static int func_fill_frame(SDL_VoutOverlay *overlay, const AVFrame *frame)
+{
+    assert(frame->format == IJK_AV_PIX_FMT__VIDEO_TOOLBOX);
+
+    CVBufferRef pixel_buffer = CVBufferRetain(frame->opaque);
+    SDL_VoutOverlay_Opaque *opaque = overlay->opaque;
+    if (opaque->pixel_buffer != NULL) {
+        CVBufferRelease(opaque->pixel_buffer);
+    }
+    opaque->pixel_buffer = pixel_buffer;
+    overlay->format = SDL_FCC__VTB;
+    overlay->planes = 2;
+
+#if 1
+    if (CVPixelBufferLockBaseAddress(pixel_buffer, 0) != kCVReturnSuccess) {
+        overlay->pixels[0]  = NULL;
+        overlay->pixels[1]  = NULL;
+        overlay->pitches[0] = 0;
+        overlay->pitches[1] = 0;
+        overlay->w = 0;
+        overlay->h = 0;
+        CVBufferRelease(pixel_buffer);
+        opaque->pixel_buffer = NULL;
+        return -1;
+    }
+    // overlay->pixels[0]  = CVPixelBufferGetBaseAddressOfPlane(pixel_buffer, 0);
+    // overlay->pixels[1]  = CVPixelBufferGetBaseAddressOfPlane(pixel_buffer, 1);
+    overlay->pixels[0]  = NULL;
+    overlay->pixels[1]  = NULL;
+    overlay->pitches[0] = CVPixelBufferGetWidthOfPlane(pixel_buffer, 0);
+    overlay->pitches[1] = CVPixelBufferGetWidthOfPlane(pixel_buffer, 1);
+    CVPixelBufferUnlockBaseAddress(pixel_buffer, 0);
+#else
+    overlay->pixels[0]  = NULL;
+    overlay->pixels[1]  = NULL;
+    overlay->pitches[0] = 0;
+    overlay->pitches[1] = 0;
+#endif
+    overlay->is_private = 1;
+
+    overlay->w = (int)frame->width;
+    overlay->h = (int)frame->height;
+    return 0;
+}
+
+ #define SDL_FCC__VTB    SDL_FOURCC('_', 'V', 'T', 'B')    /**< iOS VideoToolbox */
+
+
+ //渲染逻辑
+ SDL_Vout *SDL_VoutIos_CreateForGLES2()
+{
+    SDL_Vout *vout = SDL_Vout_CreateInternal(sizeof(SDL_Vout_Opaque));
+    if (!vout)
+        return NULL;
+
+    SDL_Vout_Opaque *opaque = vout->opaque;
+    opaque->gl_view = nil;
+    vout->create_overlay = vout_create_overlay;
+    vout->free_l = vout_free_l;
+    vout->display_overlay = vout_display_overlay;
+
+    return vout;
+}
+
+
+//
+

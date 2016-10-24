@@ -1,0 +1,3 @@
+这里会介绍两个工具class-dump和Hopper Disassembler。
+
+class-dump -H App.name

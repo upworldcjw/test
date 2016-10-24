@@ -1,0 +1,121 @@
+GCD socket 举例子
+
+- (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag{
+     NSArray<GMessage *> *msgModels = [self.readDataManager handelSocketRawData:data];
+
+     for (GMessage *gmsg in msgModels ) {
+        [self handleMsgPackage:gmsg];
+     }
+}
+
+
+///黏报源码
+@interface ULReadDataManager : NSObject
+///粘包，拆包
+- (NSArray<GMessage *> *)handelSocketRawData:(NSData *)data;
+- (void)resetBuffer;
+@end
+
+@interface ULReadDataManager ()
+//buffer缓存，（需要黏报数据 + socket返回数据）
+@property (nonatomic, strong) NSMutableData *bufferData;
+//包括position + bodyLength
+@property (nonatomic, assign) NSInteger needLegth;
+@end
+
+@implementation ULReadDataManager
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [self resetBuffer];
+    }
+    return self;
+}
+#pragma mark - 粘包，拆包
+
+///粘包，拆包
+/*
+ *一个完整PB message包括（协议长度+有效数据）
+ *协议长度：里面存储着 “有效数据长度”
+ *
+ */
+- (nonnull NSArray<GMessage *> *)handelSocketRawData:(NSData *)data {
+    if (data.length <= 0) {
+        return @[];
+    }
+    [self.bufferData appendData:data];
+    
+    NSMutableArray<GMessage *> *packages = [NSMutableArray array];
+    while (self.bufferData.length >= 6) {//>=6 是因为protobuf有个最小数据，这个和协议相关。
+        /*
+         *第一步拆包，黏包
+         */
+        NSData *valiadedData = nil;       //用于存储一个完整PB message。包括（协议长度+有效数据）
+        if (self.needLegth == 0) {//刚开始，尝试获取第一个消息的长度
+            GPBCodedInputStream *inputStream = nil;
+//            @try {
+                inputStream = [GPBCodedInputStream streamWithData:self.bufferData];
+                NSInteger allBodyLength  = [inputStream readEnum];//有效数据长度
+                NSInteger position = inputStream.position;        //position为第一个有效数据的index
+                self.needLegth = allBodyLength + position;        //一个完整PB的长度
+//            } @catch (NSException *exception) {
+//                [self resetBuffer];
+//                return packages;
+//            }
+        }
+        
+        if (self.bufferData.length == self.needLegth) {//正好凑一个包
+            valiadedData = self.bufferData;     //一个完整PB message
+            self.bufferData = [NSMutableData data];
+            self.needLegth = 0;
+        }else if (self.bufferData.length > self.needLegth){//数据有剩余，拆包
+            //发生在黏报，一次数据不够，再补充数据
+            NSData *preData = [self.bufferData subdataWithRange:NSMakeRange(0, self.needLegth)];
+            NSData *leftData = [self.bufferData subdataWithRange:NSMakeRange(self.needLegth,self.bufferData.length - self.needLegth)];
+            valiadedData = preData;             //一个完整PB message
+            self.bufferData = [NSMutableData dataWithData:leftData];//剩下的数据，可能需要继续拆包
+            self.needLegth = 0;
+        }else{//粘包
+            valiadedData  = nil;
+//            self.needLegth = 0;
+            break;                  //break 退出while循环。等待下一次socket数据
+        }
+        
+        /*
+         *第二步PB解析
+         */
+        if (valiadedData.length > 0) {//一个完整PB message，下面逻辑进行PB解析
+            GPBCodedInputStream *inputStream = nil;
+//            @try {
+                inputStream = [GPBCodedInputStream streamWithData:valiadedData];
+//            } @catch (NSException *exception) {
+//                [self resetBuffer];
+//                return packages;
+//            }
+            GMessage *gmsg = nil;
+//            @try {
+                NSError *error = nil;
+                gmsg =  [GMessage parseDelimitedFromCodedInputStream:inputStream
+                                                   extensionRegistry:nil
+                                                               error:&error];
+//            } @catch (NSException *exception) {
+//                [self resetBuffer];
+//                return packages;
+//            }
+            if (gmsg) {
+                [packages addObject:gmsg];
+            }
+        }//packValiaded
+    }//while
+    return packages;
+}
+
+#pragma mark - Private
+- (void)resetBuffer {
+    self.needLegth = 0;
+    self.bufferData = [NSMutableData data];
+}
+@end
+
+
+
