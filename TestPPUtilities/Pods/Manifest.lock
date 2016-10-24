@@ -1,0 +1,70 @@
+PODS:
+  - JGProgressHUD (1.4)
+  - JRSwizzle (1.0)
+  - JWDateSetting (0.0.2)
+  - MDHTMLLabel (1.0.2)
+  - MJRefresh (3.1.12)
+  - MLLabel (2.0)
+  - PPUtilities (0.1.9):
+    - PPUtilities/Category/Base (= 0.1.9)
+    - PPUtilities/Category/IMCategory (= 0.1.9)
+    - PPUtilities/Category/JSON (= 0.1.9)
+    - PPUtilities/Category/NSStringCategory (= 0.1.9)
+    - PPUtilities/Category/UIImageCategory (= 0.1.9)
+    - PPUtilities/Core (= 0.1.9)
+    - PPUtilities/Helper/Base (= 0.1.9)
+    - PPUtilities/Helper/UIDeviceHelper (= 0.1.9)
+    - PPUtilities/UI/Base (= 0.1.9)
+    - PPUtilities/UI/UINavigationBarCategory (= 0.1.9)
+  - PPUtilities/Category/Base (0.1.9)
+  - PPUtilities/Category/IMCategory (0.1.9)
+  - PPUtilities/Category/IMNSDate (0.1.9):
+    - JWDateSetting
+    - PPUtilities/Category/Base
+  - PPUtilities/Category/JSON (0.1.9)
+  - PPUtilities/Category/NSStringCategory (0.1.9)
+  - PPUtilities/Category/OthersCategory (0.1.9)
+  - PPUtilities/Category/UIImageCategory (0.1.9)
+  - PPUtilities/Core (0.1.9)
+  - PPUtilities/Helper/Base (0.1.9)
+  - PPUtilities/Helper/JGProgressHUDHelper (0.1.9):
+    - JGProgressHUD
+  - PPUtilities/Helper/MDHTMLLabelHelper (0.1.9):
+    - MDHTMLLabel
+  - PPUtilities/Helper/MJRefreshHelper (0.1.9):
+    - MJRefresh
+  - PPUtilities/Helper/MLLabelHelper (0.1.9):
+    - MLLabel
+  - PPUtilities/Helper/StoryboardHelper (0.1.9)
+  - PPUtilities/Helper/UIDeviceHelper (0.1.9):
+    - SDVersion
+  - PPUtilities/Macro (0.1.9)
+  - PPUtilities/UI/Base (0.1.9)
+  - PPUtilities/UI/UINavigationBarCategory (0.1.9):
+    - JRSwizzle
+  - SDVersion (3.6)
+
+DEPENDENCIES:
+  - PPUtilities
+  - PPUtilities/Category/IMNSDate
+  - PPUtilities/Category/OthersCategory
+  - PPUtilities/Helper/JGProgressHUDHelper
+  - PPUtilities/Helper/MDHTMLLabelHelper
+  - PPUtilities/Helper/MJRefreshHelper
+  - PPUtilities/Helper/MLLabelHelper
+  - PPUtilities/Helper/StoryboardHelper
+  - PPUtilities/Macro
+
+SPEC CHECKSUMS:
+  JGProgressHUD: 1617b0940cf80bb53e8f7d6f0fd69252ea45d6d4
+  JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
+  JWDateSetting: 9ac7c6ab736999b7ffd0e47cdcc7a723dc2f83ba
+  MDHTMLLabel: 18bf09ec7d6c1ae396497345c005857c0493ee0a
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  MLLabel: d70f3b11b1fc1f2125d413ba8933dbce1c5df33d
+  PPUtilities: 480640c1a60ed11c1908cf09e54568532d705519
+  SDVersion: 43383b6ac05462c973c3fd92d9748c74e360aba5
+
+PODFILE CHECKSUM: d14cac73c86bbcd6933b9920b4d46e18e1a32dde
+
+COCOAPODS: 1.0.1

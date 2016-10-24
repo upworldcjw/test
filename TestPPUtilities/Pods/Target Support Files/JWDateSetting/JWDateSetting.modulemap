@@ -1,0 +1,6 @@
+framework module JWDateSetting {
+  umbrella header "JWDateSetting-umbrella.h"
+
+  export *
+  module * { export * }
+}

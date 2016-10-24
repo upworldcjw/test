@@ -1,13 +1,7 @@
- 
-
 
  carthage update 
  
  carthage update --platform iOS
-
-
-
-
 
 # Require version 2.3.1 or later
 github "ReactiveCocoa/ReactiveCocoa" >= 2.3.1
@@ -35,3 +29,12 @@ git "file:///directory/to/project" "branch"
 
 
 git "git@gitlab.pengpeng.la:ioscore/ppimage.git" "development"
+
+
+
+carthage 配置
+
+git  "git@gitlab.pengpeng.la:ioscore/ppimage.git" "dev"
+
+指向本地git
+git  "file:///Users/jianwei/Documents/gitRepo/碰碰库/ppimage" "dev2"
