@@ -7,7 +7,7 @@
 //
 
 #import "UIViewController+InteractivePop.h"
-#import "JRSwizzle.h"
+#import <JRSwizzle/JRSwizzle.h>
 @implementation UIViewController (InteractivePop)
 
 +(void)load{

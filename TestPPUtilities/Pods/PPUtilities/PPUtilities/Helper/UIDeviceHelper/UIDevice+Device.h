@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SDiOSVersion.h"
+#import <SDVersion/SDiOSVersion.h>
 @interface UIDevice (Device)
 
 typedef NS_ENUM(NSInteger, NBDeviceSize){

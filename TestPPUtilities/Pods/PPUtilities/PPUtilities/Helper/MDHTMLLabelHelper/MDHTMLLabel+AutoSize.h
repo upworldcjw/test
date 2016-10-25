@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 AsiaInnovations. All rights reserved.
 //
 
-#import "MDHTMLLabel.h"
+#import <MDHTMLLabel/MDHTMLLabel.h>
 
 @interface MDHTMLLabel (AutoSize)
 + (CGSize)sizeForText:(NSString *)text withMaxWidth:(CGFloat)maxWidth andFont:(UIFont *)txtFont;

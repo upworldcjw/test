@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NSDate+DateSetting.h"
+#import <JWDateSetting/NSDate+DateSetting.h>
 #import "NSDate+Category.h"
 
 @interface NSDate (ChatList)

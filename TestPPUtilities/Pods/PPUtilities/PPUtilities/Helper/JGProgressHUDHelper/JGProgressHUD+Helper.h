@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 AsiaInnovations. All rights reserved.
 //
 
-#import "JGProgressHUD.h"
+#import <JGProgressHUD/JGProgressHUD.h>
 typedef NS_ENUM(NSInteger,JGProgressHUDCustomedStyle){
     JGProgressHUDCustomedStyle_A,
 };

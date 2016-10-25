@@ -11,7 +11,7 @@
 #define kUIButtonBlockTouchUpInside @"TouchInside"
 @interface UIButton (block)
 
-@property(nonnull,nonatomic,strong) NSMutableDictionary *actions;
+@property(nonatomic,strong) NSMutableDictionary *actions;
 - (void)setAction:(NSString*)action withBlock:(void(^)())block;
 - (void)setParam:(NSMutableDictionary *)params;
 - (NSMutableDictionary*)param;
