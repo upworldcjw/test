@@ -30,7 +30,7 @@
     }
     
     [super viewDidLoad];
-    [self testMethod_11];
+    [self testMethod_12];
 }
 
 
@@ -298,21 +298,9 @@
 //    three ==== 4  <NSThread: 0x16d91cf0>{number = 4, name = (null)} Main:NO
 }
 
-//如果并行queue，在asy执行的时候，syn能够执行.
-- (void)testMethod_9{
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self testConcurrentSyn:YES withTag:@"one"];
-        exit(0);
-    });
-    [self gcdTestConcurrentQueueMethod:^{
-        while (YES) {
-            printf("asyn");
-        }
-    } syn:NO];
-}
 
 //如果串行queue，在asy执行的时候，syn不能够执行，直到asy执行完才有机会.
-- (void)testMethod_10{
+- (void)testMethod_9{
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self testSerialMethodSyn:YES withTag:@"one"];
         exit(0);
@@ -324,15 +312,29 @@
             }
         } syn:NO];
     });
-//  *****  asynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynone ==== 2  <NSThread: 0x7f98fef00510>{number = 1, name = main} Main:YES
-//    asynone ==== 3  <NSThread: 0x7f98fef00510>{number = 1, name = main} Main:YES
-//    asynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynone ==== 4  <NSThread: 0x7f98fef00510>{number = 1, name = main} Main:YES
-//    asynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynas
-//    ****
+}
+
+//如果并行queue，在asy执行的时候，syn能够执行.
+- (void)testMethod_10{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self testConcurrentSyn:YES withTag:@"one"];
+        exit(0);
+    });
+    [self gcdTestConcurrentQueueMethod:^{
+        while (YES) {
+            printf("asyn");
+        }
+    } syn:NO];
+    //  *****  asynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynone ==== 2  <NSThread: 0x7f98fef00510>{number = 1, name = main} Main:YES
+    //    asynone ==== 3  <NSThread: 0x7f98fef00510>{number = 1, name = main} Main:YES
+    //    asynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynone ==== 4  <NSThread: 0x7f98fef00510>{number = 1, name = main} Main:YES
+    //    asynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynasynas
+    //    ****
 }
 
 
-//如果串行queue，在asy执行的时候，dispatch_barrier_sync不能够执行.
+
+//如果并行queue，在asy执行的时候，dispatch_barrier_sync不能够执行.
 - (void)testMethod_11{
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         dispatch_barrier_sync(_concurrentQueue, ^{
@@ -355,18 +357,28 @@
     });
 }
 
-- (void)testSerialMethodSyn:(BOOL)syn withTag:(NSString *)tag{
-    __block NSString *bTag = tag;
-    [self gcdTestSerialQueueMethod:^{
-        for (int i=1; i<5; i++)
-        {
-            NSString *isMain = [[NSThread currentThread] isMainThread]?@"YES":@"NO";
-//            NSLog(@"%@ ====% 2d  %@ Main:%@",bTag,i,[NSThread currentThread],isMain);
-            NSString *string = [NSString stringWithFormat:@"%@ ====% 2d  %@ Main:%@",bTag,i,[NSThread currentThread],isMain];
-            printf("%s\n", [string UTF8String]);
-        }
-    } syn:syn];
+//如果并行queue，在asy执行的时候，dispatch_barrier_sync不能够执行.
+- (void)testMethod_12{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self gcdTestConcurrentQueueMethod:^{
+            for (int i=1; i<100; i++)
+            {
+                NSString *isMain = [[NSThread currentThread] isMainThread]?@"YES":@"NO";
+                NSString *string = [NSString stringWithFormat:@"%@ ====% 2d  %@ Main:%@",@"dispatch_barrier_sync",i,[NSThread currentThread],isMain];
+                printf("%s\n", [string UTF8String]);
+            }
+        } syn:YES];
+    });
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_barrier_async(_concurrentQueue, ^{
+            while (YES) {
+                printf("asyn");
+            }
+        });
+    });
 }
+
+
 
 //- (dispatch_block_t)blockWithTag:(NSString *)tag{
 //    return ^{
@@ -378,6 +390,19 @@
 //        }
 //}
 
+
+- (void)testSerialMethodSyn:(BOOL)syn withTag:(NSString *)tag{
+    __block NSString *bTag = tag;
+    [self gcdTestSerialQueueMethod:^{
+        for (int i=1; i<5; i++)
+        {
+            NSString *isMain = [[NSThread currentThread] isMainThread]?@"YES":@"NO";
+            //            NSLog(@"%@ ====% 2d  %@ Main:%@",bTag,i,[NSThread currentThread],isMain);
+            NSString *string = [NSString stringWithFormat:@"%@ ====% 2d  %@ Main:%@",bTag,i,[NSThread currentThread],isMain];
+            printf("%s\n", [string UTF8String]);
+        }
+    } syn:syn];
+}
 
 - (void)testConcurrentSyn:(BOOL)syn withTag:(NSString *)tag {
     __block NSString *bTag = tag;
