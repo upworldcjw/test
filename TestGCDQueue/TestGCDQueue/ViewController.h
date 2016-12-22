@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController{
+    dispatch_queue_t _serialQueue;
+    dispatch_queue_t _concurrentQueue;
+}
+
 
 
 @end

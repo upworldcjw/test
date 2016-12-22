@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E51C42541E0BD3B7007EA042 /* ViewController+TestSynOrAsyn.m in Sources */ = {isa = PBXBuildFile; fileRef = E51C42531E0BD3B7007EA042 /* ViewController+TestSynOrAsyn.m */; };
 		E5D611AC1DF008E2000C4A67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D611AB1DF008E2000C4A67 /* main.m */; };
 		E5D611AF1DF008E2000C4A67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D611AE1DF008E2000C4A67 /* AppDelegate.m */; };
 		E5D611B21DF008E2000C4A67 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D611B11DF008E2000C4A67 /* ViewController.m */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E51C42521E0BD3B7007EA042 /* ViewController+TestSynOrAsyn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+TestSynOrAsyn.h"; sourceTree = "<group>"; };
+		E51C42531E0BD3B7007EA042 /* ViewController+TestSynOrAsyn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+TestSynOrAsyn.m"; sourceTree = "<group>"; };
 		E5D611A71DF008E2000C4A67 /* TestGCDQueue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestGCDQueue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D611AB1DF008E2000C4A67 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E5D611AD1DF008E2000C4A67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,6 +65,8 @@
 				E5D611AE1DF008E2000C4A67 /* AppDelegate.m */,
 				E5D611B01DF008E2000C4A67 /* ViewController.h */,
 				E5D611B11DF008E2000C4A67 /* ViewController.m */,
+				E51C42521E0BD3B7007EA042 /* ViewController+TestSynOrAsyn.h */,
+				E51C42531E0BD3B7007EA042 /* ViewController+TestSynOrAsyn.m */,
 				E5D611B31DF008E2000C4A67 /* Main.storyboard */,
 				E5D611B61DF008E2000C4A67 /* Assets.xcassets */,
 				E5D611B81DF008E2000C4A67 /* LaunchScreen.storyboard */,
@@ -152,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5D611B21DF008E2000C4A67 /* ViewController.m in Sources */,
+				E51C42541E0BD3B7007EA042 /* ViewController+TestSynOrAsyn.m in Sources */,
 				E5D611AF1DF008E2000C4A67 /* AppDelegate.m in Sources */,
 				E5D611AC1DF008E2000C4A67 /* main.m in Sources */,
 			);
