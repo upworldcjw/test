@@ -16,22 +16,6 @@
     [self testSerialMethodSyn:NO withTag:@"two"];
     [self testSerialMethodSyn:NO withTag:@"three"];
     [self testSerialMethodSyn:NO withTag:@"five"];
-    //one ==== 1  <NSThread: 0x17406f480>{number = 3, name = (null)} Main:NO
-    //one ==== 2  <NSThread: 0x17406f480>{number = 3, name = (null)} Main:NO
-    //one ==== 3  <NSThread: 0x17406f480>{number = 3, name = (null)} Main:NO
-    //one ==== 4  <NSThread: 0x17406f480>{number = 3, name = (null)} Main:NO
-    //two ==== 1  <NSThread: 0x17406f480>{number = 3, name = (null)} Main:NO
-    //two ==== 2  <NSThread: 0x17406f480>{number = 3, name = (null)} Main:NO
-    //two ==== 3  <NSThread: 0x17406f480>{number = 3, name = (null)} Main:NO
-    //two ==== 4  <NSThread: 0x17406f480>{number = 3, name = (null)} Main:NO
-    //three ==== 1  <NSThread: 0x17406f480>{number = 3, name = (null)} Main:NO
-    //three ==== 2  <NSThread: 0x17406f480>{number = 3, name = (null)} Main:NO
-    //three ==== 3  <NSThread: 0x17406f480>{number = 3, name = (null)} Main:NO
-    //three ==== 4  <NSThread: 0x17406f480>{number = 3, name = (null)} Main:NO
-    //five ==== 1  <NSThread: 0x17406f480>{number = 3, name = (null)} Main:NO
-    //five ==== 2  <NSThread: 0x17406f480>{number = 3, name = (null)} Main:NO
-    //five ==== 3  <NSThread: 0x17406f480>{number = 3, name = (null)} Main:NO
-    //five ==== 4  <NSThread: 0x17406f480>{number = 3, name = (null)} Main:NO
 }
 
 //不同线程串行queue asy会创建一个线程，所有都在这个线程执行 fifo
@@ -52,26 +36,6 @@
         NSLog(@"before %@",[NSThread currentThread]);
         [self testSerialMethodSyn:NO withTag:@"five"];
     });
-    //    2016-12-01 15:23:10.135 TestGCDQueue[246:49982] before <NSThread: 0x15e97480>{number = 2, name = (null)}
-    //    2016-12-01 15:23:10.136 TestGCDQueue[246:49984] before <NSThread: 0x15e97ab0>{number = 3, name = (null)}
-    //    2016-12-01 15:23:10.135 TestGCDQueue[246:49983] before <NSThread: 0x15d96360>{number = 4, name = (null)}
-    //    2016-12-01 15:23:10.139 TestGCDQueue[246:49982] before <NSThread: 0x15e97480>{number = 2, name = (null)}
-    //    one ==== 1  <NSThread: 0x15e97620>{number = 5, name = (null)} Main:NO
-    //    one ==== 2  <NSThread: 0x15e97620>{number = 5, name = (null)} Main:NO
-    //    one ==== 3  <NSThread: 0x15e97620>{number = 5, name = (null)} Main:NO
-    //    one ==== 4  <NSThread: 0x15e97620>{number = 5, name = (null)} Main:NO
-    //    three ==== 1  <NSThread: 0x15e97620>{number = 5, name = (null)} Main:NO
-    //    three ==== 2  <NSThread: 0x15e97620>{number = 5, name = (null)} Main:NO
-    //    three ==== 3  <NSThread: 0x15e97620>{number = 5, name = (null)} Main:NO
-    //    three ==== 4  <NSThread: 0x15e97620>{number = 5, name = (null)} Main:NO
-    //    two ==== 1  <NSThread: 0x15e97620>{number = 5, name = (null)} Main:NO
-    //    two ==== 2  <NSThread: 0x15e97620>{number = 5, name = (null)} Main:NO
-    //    two ==== 3  <NSThread: 0x15e97620>{number = 5, name = (null)} Main:NO
-    //    two ==== 4  <NSThread: 0x15e97620>{number = 5, name = (null)} Main:NO
-    //    five ==== 1  <NSThread: 0x15e97620>{number = 5, name = (null)} Main:NO
-    //    five ==== 2  <NSThread: 0x15e97620>{number = 5, name = (null)} Main:NO
-    //    five ==== 3  <NSThread: 0x15e97620>{number = 5, name = (null)} Main:NO
-    //    five ==== 4  <NSThread: 0x15e97620>{number = 5, name = (null)} Main:NO
 }
 
 //同一个线程串行queue syn不会创建线程，所有都在原来线程执行，fifo
@@ -80,22 +44,6 @@
     [self testSerialMethodSyn:YES withTag:@"two"];
     [self testSerialMethodSyn:YES withTag:@"three"];
     [self testSerialMethodSyn:YES withTag:@"five"];
-    //    one ==== 1  <NSThread: 0x17e4c090>{number = 1, name = main} Main:YES
-    //    one ==== 2  <NSThread: 0x17e4c090>{number = 1, name = main} Main:YES
-    //    one ==== 3  <NSThread: 0x17e4c090>{number = 1, name = main} Main:YES
-    //    one ==== 4  <NSThread: 0x17e4c090>{number = 1, name = main} Main:YES
-    //    two ==== 1  <NSThread: 0x17e4c090>{number = 1, name = main} Main:YES
-    //    two ==== 2  <NSThread: 0x17e4c090>{number = 1, name = main} Main:YES
-    //    two ==== 3  <NSThread: 0x17e4c090>{number = 1, name = main} Main:YES
-    //    two ==== 4  <NSThread: 0x17e4c090>{number = 1, name = main} Main:YES
-    //    three ==== 1  <NSThread: 0x17e4c090>{number = 1, name = main} Main:YES
-    //    three ==== 2  <NSThread: 0x17e4c090>{number = 1, name = main} Main:YES
-    //    three ==== 3  <NSThread: 0x17e4c090>{number = 1, name = main} Main:YES
-    //    three ==== 4  <NSThread: 0x17e4c090>{number = 1, name = main} Main:YES
-    //    five ==== 1  <NSThread: 0x17e4c090>{number = 1, name = main} Main:YES
-    //    five ==== 2  <NSThread: 0x17e4c090>{number = 1, name = main} Main:YES
-    //    five ==== 3  <NSThread: 0x17e4c090>{number = 1, name = main} Main:YES
-    //    five ==== 4  <NSThread: 0x17e4c090>{number = 1, name = main} Main:YES
 }
 
 
@@ -117,26 +65,6 @@
         NSLog(@"five before %@",[NSThread currentThread]);
         [self testSerialMethodSyn:YES withTag:@"five"];
     });
-    //    2016-12-01 15:33:40.610 TestGCDQueue[268:51700] two before <NSThread: 0x14593820>{number = 4, name = (null)}
-    //    two ==== 1  <NSThread: 0x14593820>{number = 4, name = (null)} Main:NO
-    //    two ==== 2  <NSThread: 0x14593820>{number = 4, name = (null)} Main:NO
-    //    two ==== 3  <NSThread: 0x14593820>{number = 4, name = (null)} Main:NO
-    //    2016-12-01 15:33:40.609 TestGCDQueue[268:51698] one before <NSThread: 0x1468d890>{number = 2, name = (null)}
-    //    two ==== 4  <NSThread: 0x14593820>{number = 4, name = (null)} Main:NO
-    //    2016-12-01 15:33:40.610 TestGCDQueue[268:51701] three before <NSThread: 0x14584970>{number = 3, name = (null)}
-    //    one ==== 1  <NSThread: 0x1468d890>{number = 2, name = (null)} Main:NO
-    //    one ==== 2  <NSThread: 0x1468d890>{number = 2, name = (null)} Main:NO
-    //    one ==== 3  <NSThread: 0x1468d890>{number = 2, name = (null)} Main:NO
-    //    one ==== 4  <NSThread: 0x1468d890>{number = 2, name = (null)} Main:NO
-    //    2016-12-01 15:33:40.619 TestGCDQueue[268:51700] five before <NSThread: 0x14593820>{number = 4, name = (null)}
-    //    five ==== 1  <NSThread: 0x14593820>{number = 4, name = (null)} Main:NO
-    //    five ==== 2  <NSThread: 0x14593820>{number = 4, name = (null)} Main:NO
-    //    five ==== 3  <NSThread: 0x14593820>{number = 4, name = (null)} Main:NO
-    //    five ==== 4  <NSThread: 0x14593820>{number = 4, name = (null)} Main:NO
-    //    three ==== 1  <NSThread: 0x14584970>{number = 3, name = (null)} Main:NO
-    //    three ==== 2  <NSThread: 0x14584970>{number = 3, name = (null)} Main:NO
-    //    three ==== 3  <NSThread: 0x14584970>{number = 3, name = (null)} Main:NO
-    //    three ==== 4  <NSThread: 0x14584970>{number = 3, name = (null)} Main:NO
 }
 
 //同一个线程，并行queue，会启动多个线程分别执行，不满足fifo
@@ -145,23 +73,6 @@
     [self testConcurrentSyn:NO withTag:@"two"];
     [self testConcurrentSyn:NO withTag:@"three"];
     [self testConcurrentSyn:NO withTag:@"five"];
-    
-    //    one ==== 1  <NSThread: 0x14564030>{number = 2, name = (null)} Main:NO
-    //    one ==== 2  <NSThread: 0x14564030>{number = 2, name = (null)} Main:NO
-    //    one ==== 3  <NSThread: 0x14564030>{number = 2, name = (null)} Main:NO
-    //    two ==== 1  <NSThread: 0x1456f0b0>{number = 3, name = (null)} Main:NO
-    //    two ==== 2  <NSThread: 0x1456f0b0>{number = 3, name = (null)} Main:NO
-    //    one ==== 4  <NSThread: 0x14564030>{number = 2, name = (null)} Main:NO
-    //    five ==== 1  <NSThread: 0x14564030>{number = 2, name = (null)} Main:NO
-    //    five ==== 2  <NSThread: 0x14564030>{number = 2, name = (null)} Main:NO
-    //    five ==== 3  <NSThread: 0x14564030>{number = 2, name = (null)} Main:NO
-    //    five ==== 4  <NSThread: 0x14564030>{number = 2, name = (null)} Main:NO
-    //    three ==== 1  <NSThread: 0x146724e0>{number = 4, name = (null)} Main:NO
-    //    three ==== 2  <NSThread: 0x146724e0>{number = 4, name = (null)} Main:NO
-    //    three ==== 3  <NSThread: 0x146724e0>{number = 4, name = (null)} Main:NO
-    //    three ==== 4  <NSThread: 0x146724e0>{number = 4, name = (null)} Main:NO
-    //    two ==== 3  <NSThread: 0x1456f0b0>{number = 3, name = (null)} Main:NO
-    //    two ==== 4  <NSThread: 0x1456f0b0>{number = 3, name = (null)} Main:NO
 }
 
 //不同线程，并行queue，会启动多个线程分别执行，不满足fifo
@@ -182,26 +93,6 @@
         NSLog(@"five before %@",[NSThread currentThread]);
         [self testConcurrentSyn:NO withTag:@"five"];
     });
-    //    2016-12-01 15:47:49.722 TestGCDQueue[307:54480] two before <NSThread: 0x16d81de0>{number = 3, name = (null)}
-    //    2016-12-01 15:47:49.723 TestGCDQueue[307:54481] one before <NSThread: 0x16d81d20>{number = 2, name = (null)}
-    //    2016-12-01 15:47:49.723 TestGCDQueue[307:54482] three before <NSThread: 0x16d95ea0>{number = 4, name = (null)}
-    //    2016-12-01 15:47:49.726 TestGCDQueue[307:54480] five before <NSThread: 0x16d81de0>{number = 3, name = (null)}
-    //    one ==== 1  <NSThread: 0x16d95ea0>{number = 4, name = (null)} Main:NO
-    //    three ==== 1  <NSThread: 0x16d81de0>{number = 3, name = (null)} Main:NO
-    //    one ==== 2  <NSThread: 0x16d95ea0>{number = 4, name = (null)} Main:NO
-    //    one ==== 3  <NSThread: 0x16d95ea0>{number = 4, name = (null)} Main:NO
-    //    three ==== 2  <NSThread: 0x16d81de0>{number = 3, name = (null)} Main:NO
-    //    one ==== 4  <NSThread: 0x16d95ea0>{number = 4, name = (null)} Main:NO
-    //    three ==== 3  <NSThread: 0x16d81de0>{number = 3, name = (null)} Main:NO
-    //    three ==== 4  <NSThread: 0x16d81de0>{number = 3, name = (null)} Main:NO
-    //    five ==== 1  <NSThread: 0x16d95ea0>{number = 4, name = (null)} Main:NO
-    //    two ==== 1  <NSThread: 0x16d81d20>{number = 2, name = (null)} Main:NO
-    //    five ==== 2  <NSThread: 0x16d95ea0>{number = 4, name = (null)} Main:NO
-    //    two ==== 2  <NSThread: 0x16d81d20>{number = 2, name = (null)} Main:NO
-    //    five ==== 3  <NSThread: 0x16d95ea0>{number = 4, name = (null)} Main:NO
-    //    two ==== 3  <NSThread: 0x16d81d20>{number = 2, name = (null)} Main:NO
-    //    five ==== 4  <NSThread: 0x16d95ea0>{number = 4, name = (null)} Main:NO
-    //    two ==== 4  <NSThread: 0x16d81d20>{number = 2, name = (null)} Main:NO
 }
 
 
@@ -211,25 +102,9 @@
     [self testConcurrentSyn:YES withTag:@"two"];
     [self testConcurrentSyn:YES withTag:@"three"];
     [self testConcurrentSyn:YES withTag:@"five"];
-    //    one ==== 1  <NSThread: 0x16564f60>{number = 1, name = main} Main:YES
-    //    one ==== 2  <NSThread: 0x16564f60>{number = 1, name = main} Main:YES
-    //    one ==== 3  <NSThread: 0x16564f60>{number = 1, name = main} Main:YES
-    //    one ==== 4  <NSThread: 0x16564f60>{number = 1, name = main} Main:YES
-    //    two ==== 1  <NSThread: 0x16564f60>{number = 1, name = main} Main:YES
-    //    two ==== 2  <NSThread: 0x16564f60>{number = 1, name = main} Main:YES
-    //    two ==== 3  <NSThread: 0x16564f60>{number = 1, name = main} Main:YES
-    //    two ==== 4  <NSThread: 0x16564f60>{number = 1, name = main} Main:YES
-    //    three ==== 1  <NSThread: 0x16564f60>{number = 1, name = main} Main:YES
-    //    three ==== 2  <NSThread: 0x16564f60>{number = 1, name = main} Main:YES
-    //    three ==== 3  <NSThread: 0x16564f60>{number = 1, name = main} Main:YES
-    //    three ==== 4  <NSThread: 0x16564f60>{number = 1, name = main} Main:YES
-    //    five ==== 1  <NSThread: 0x16564f60>{number = 1, name = main} Main:YES
-    //    five ==== 2  <NSThread: 0x16564f60>{number = 1, name = main} Main:YES
-    //    five ==== 3  <NSThread: 0x16564f60>{number = 1, name = main} Main:YES
-    //    five ==== 4  <NSThread: 0x16564f60>{number = 1, name = main} Main:YES
 }
 
-//不同线程，并行queue，会在当前线程。fifo
+//不同线程，并行queue。多个线程异步调用。
 - (void)testMethod_8{
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSLog(@"one before %@",[NSThread currentThread]);
@@ -247,28 +122,8 @@
         NSLog(@"five before %@",[NSThread currentThread]);
         [self testConcurrentSyn:YES withTag:@"five"];
     });
-    //    2016-12-01 15:53:50.718 TestGCDQueue[324:55585] two before <NSThread: 0x16d91b40>{number = 3, name = (null)}
-    //    2016-12-01 15:53:50.718 TestGCDQueue[324:55586] one before <NSThread: 0x16d919b0>{number = 2, name = (null)}
-    //    two ==== 1  <NSThread: 0x16d91b40>{number = 3, name = (null)} Main:NO
-    //    two ==== 2  <NSThread: 0x16d91b40>{number = 3, name = (null)} Main:NO
-    //    two ==== 3  <NSThread: 0x16d91b40>{number = 3, name = (null)} Main:NO
-    //    two ==== 4  <NSThread: 0x16d91b40>{number = 3, name = (null)} Main:NO
-    //    one ==== 1  <NSThread: 0x16d919b0>{number = 2, name = (null)} Main:NO
-    //    one ==== 2  <NSThread: 0x16d919b0>{number = 2, name = (null)} Main:NO
-    //    one ==== 3  <NSThread: 0x16d919b0>{number = 2, name = (null)} Main:NO
-    //    one ==== 4  <NSThread: 0x16d919b0>{number = 2, name = (null)} Main:NO
-    //    2016-12-01 15:53:50.723 TestGCDQueue[324:55585] five before <NSThread: 0x16d91b40>{number = 3, name = (null)}
-    //    five ==== 1  <NSThread: 0x16d91b40>{number = 3, name = (null)} Main:NO
-    //    five ==== 2  <NSThread: 0x16d91b40>{number = 3, name = (null)} Main:NO
-    //    five ==== 3  <NSThread: 0x16d91b40>{number = 3, name = (null)} Main:NO
-    //    five ==== 4  <NSThread: 0x16d91b40>{number = 3, name = (null)} Main:NO
-    //    2016-12-01 15:53:50.718 TestGCDQueue[324:55583] three before <NSThread: 0x16d91cf0>{number = 4, name = (null)}
-    //    three ==== 1  <NSThread: 0x16d91cf0>{number = 4, name = (null)} Main:NO
-    //    three ==== 2  <NSThread: 0x16d91cf0>{number = 4, name = (null)} Main:NO
-    //    three ==== 3  <NSThread: 0x16d91cf0>{number = 4, name = (null)} Main:NO
-    //    three ==== 4  <NSThread: 0x16d91cf0>{number = 4, name = (null)} Main:NO
+    
 }
-
 
 //如果串行queue，在asy执行的时候，syn不能够执行，直到asy执行完才有机会.
 - (void)testMethod_9{
@@ -365,7 +220,7 @@
 - (void)testSerialMethodSyn:(BOOL)syn withTag:(NSString *)tag{
     __block NSString *bTag = tag;
     [self gcdTestSerialQueueMethod:^{
-        for (int i=1; i<5; i++)
+        for (int i=1; i<50; i++)
         {
             NSString *isMain = [[NSThread currentThread] isMainThread]?@"YES":@"NO";
             //            NSLog(@"%@ ====% 2d  %@ Main:%@",bTag,i,[NSThread currentThread],isMain);
@@ -378,7 +233,7 @@
 - (void)testConcurrentSyn:(BOOL)syn withTag:(NSString *)tag {
     __block NSString *bTag = tag;
     [self gcdTestConcurrentQueueMethod:^{
-        for (int i=1; i<5; i++)
+        for (int i=1; i<50; i++)
         {
             NSString *isMain = [[NSThread currentThread] isMainThread]?@"YES":@"NO";
             NSString *string = [NSString stringWithFormat:@"%@ ====% 2d  %@ Main:%@",bTag,i,[NSThread currentThread],isMain];

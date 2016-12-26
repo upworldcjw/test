@@ -15,8 +15,6 @@
 
 @implementation ViewController
 
-
-
 - (void)viewDidLoad {
     if (!_serialQueue){
         static NSString *queueSerialName = @"test.serial.queue";
@@ -30,10 +28,74 @@
     }
     
     [super viewDidLoad];
+    [self testMethod_8];
     //    [self testMethod_12];
     
     //    [self testTargetQueue];
-    [self testTargetQueue2];
+    //    [self testTargetQueue2];
+    
+    //[self dispatchBarrierAsyncDemo];
+    
+    //[self dispatchBlockWaitDemo];
+//        [self dispatchBlockNotifyDemo];
+//    [self dispatchBlockCancelDemo];
+//    [self deadLockCase1];
+//    [self deadLockCase3];
+//    [self deadLockCase5];
+}
+
+
+- (void)deadLockCase1 {
+    NSLog(@"1");
+    //主队列的同步线程，按照FIFO的原则（先入先出），2排在3后面会等3执行完，但因为同步线程，3又要等2执行完，相互等待成为死锁。
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        NSLog(@"2");
+    });
+    NSLog(@"3");
+}
+- (void)deadLockCase2 {
+    NSLog(@"1");
+    //3会等2，因为2在全局并行队列里，不需要等待3，这样2执行完回到主队列，3就开始执行
+    dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        NSLog(@"2");
+    });
+    NSLog(@"3");
+}
+- (void)deadLockCase3 {
+    dispatch_queue_t serialQueue = dispatch_queue_create("com.starming.gcddemo.serialqueue", DISPATCH_QUEUE_SERIAL);
+    NSLog(@"1");
+    dispatch_async(serialQueue, ^{
+        NSLog(@"2");
+        //串行队列里面同步一个串行队列就会死锁
+        dispatch_sync(serialQueue, ^{
+            NSLog(@"3");
+        });
+        NSLog(@"4");
+    });
+    NSLog(@"5");
+}
+//- (void)deadLockCase4 {
+//    NSLog(@"1");
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        NSLog(@"2");
+//        //将同步的串行队列放到另外一个线程就能够解决
+//        dispatch_sync(dispatch_get_main_queue(), ^{
+//            NSLog(@"3");
+//        });
+//        NSLog(@"4");
+//    });
+//    NSLog(@"5");
+//}
+- (void)deadLockCase5 {
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"1");
+        //回到主线程发现死循环后面就没法执行了
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            NSLog(@"2");
+        });
+        NSLog(@"3");
+    });
+    NSLog(@"4");
 }
 
 
@@ -141,10 +203,149 @@
             NSLog(@"queue2:%@, %ld", [NSThread currentThread], i);
         }
     });
-    
+}
 
+///!!!dispatch_barrier_async只在自己创建的队列上有这种作用，在全局并发队列和串行队列上，效果和dispatch_sync一样
+- (void)dispatchBarrierAsyncDemo {
+    //防止文件读写冲突，可以创建一个串行队列，操作都在这个队列中进行，没有更新数据读用并行，写用串行。
+    dispatch_queue_t dataQueue = dispatch_queue_create("com.starming.gcddemo.dataqueue", DISPATCH_QUEUE_CONCURRENT);
+    //dispatch_queue_t dataQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(dataQueue, ^{
+        [NSThread sleepForTimeInterval:2.f];
+        NSLog(@"read data 1");
+    });
+    dispatch_async(dataQueue, ^{
+        NSLog(@"read data 2");
+    });
+    //等待前面的都完成，在执行barrier后面的
+    dispatch_barrier_async(dataQueue, ^{
+        NSLog(@"write data 1");
+        [NSThread sleepForTimeInterval:1];
+    });
+    dispatch_async(dataQueue, ^{
+        [NSThread sleepForTimeInterval:1.f];
+        NSLog(@"read data 3");
+    });
+    dispatch_async(dataQueue, ^{
+        NSLog(@"read data 4");
+    });
+}
+
+///dispatch_block_wait 阻塞当前线程，直到当前队列block执行完
+-(void)dispatchBlockWaitDemo {
+    dispatch_queue_t serialQueue = dispatch_queue_create("com.starming.gcddemo.serialqueue", DISPATCH_QUEUE_SERIAL);
+    dispatch_block_t block = dispatch_block_create(0, ^{
+        NSLog(@"star");
+        [NSThread sleepForTimeInterval:5.f];
+        NSLog(@"end");
+    });
+    dispatch_async(serialQueue, block);
+    //设置DISPATCH_TIME_FOREVER会一直等到前面任务都完成
+    dispatch_block_wait(block, DISPATCH_TIME_FOREVER);
+    NSLog(@"ok, now can go on");
+}
+
+//dispatch_block_notify
+- (void)dispatchBlockNotifyDemo {
+    dispatch_queue_t serialQueue = dispatch_queue_create("com.starming.gcddemo.serialqueue", DISPATCH_QUEUE_SERIAL);
+    dispatch_block_t firstBlock = dispatch_block_create(0, ^{
+        NSLog(@"first block start");
+        [NSThread sleepForTimeInterval:2.f];
+        NSLog(@"first block end");
+    });
+    dispatch_async(serialQueue, firstBlock);
+    dispatch_block_t secondBlock = dispatch_block_create(0, ^{
+        NSLog(@"second block run");
+    });
+    //first block执行完才在serial queue中执行second block
+    dispatch_block_notify(firstBlock, serialQueue, secondBlock);
+}
+
+//dispatch_block_cancel：iOS8后GCD支持对dispatch block的取消
+-(void)dispatchBlockCancelDemo {
+    dispatch_queue_t serialQueue = dispatch_queue_create("com.starming.gcddemo.serialqueue", DISPATCH_QUEUE_SERIAL);
+    dispatch_block_t firstBlock = dispatch_block_create(0, ^{
+        NSLog(@"first block start");
+        [NSThread sleepForTimeInterval:2.f];
+        NSLog(@"first block end");
+    });
+    dispatch_block_t secondBlock = dispatch_block_create(0, ^{
+        NSLog(@"second block run");
+    });
+    dispatch_async(serialQueue, firstBlock);
+    dispatch_async(serialQueue, secondBlock);
+    //取消secondBlock
+    dispatch_block_cancel(secondBlock);
+}
+
+
+//dispatch_group_wait
+-(void)dispatchGroupWaitDemo {
+    dispatch_queue_t concurrentQueue = dispatch_queue_create("com.starming.gcddemo.concurrentqueue",DISPATCH_QUEUE_CONCURRENT);
+    dispatch_group_t group = dispatch_group_create();
+    //在group中添加队列的block
+    dispatch_group_async(group, concurrentQueue, ^{
+        [NSThread sleepForTimeInterval:2.f];
+        NSLog(@"1");
+    });
+    dispatch_group_async(group, concurrentQueue, ^{
+        NSLog(@"2");
+    });
+    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+    NSLog(@"go on");
+}
+
+//dispatch_group_notify
+- (void)dispatchGroupNotifyDemo {
+    dispatch_queue_t concurrentQueue = dispatch_queue_create("com.starming.gcddemo.concurrentqueue",DISPATCH_QUEUE_CONCURRENT);
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_group_async(group, concurrentQueue, ^{
+        NSLog(@"1");
+    });
+    dispatch_group_async(group, concurrentQueue, ^{
+        NSLog(@"2");
+    });
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        NSLog(@"end");
+    });
+    NSLog(@"can continue");
     
 }
+//dispatch_group_enter dispatch_group_leave
+////给Core Data的-performBlock:添加groups。组合完成任务后使用dispatch_group_notify来运行一个block即可。
+//- (void)withGroup:(dispatch_group_t)group performBlock:(dispatch_block_t)block
+//{
+//    if (group == NULL) {
+//        [self performBlock:block];
+//    } else {
+//        dispatch_group_enter(group);
+//        [self performBlock:^(){
+//            block();
+//            dispatch_group_leave(group);
+//        }];
+//    }
+//}
+//
+////NSURLConnection也可以这样做
+//+ (void)withGroup:(dispatch_group_t)group
+//sendAsynchronousRequest:(NSURLRequest *)request
+//            queue:(NSOperationQueue *)queue
+//completionHandler:(void (^)(NSURLResponse*, NSData*, NSError*))handler
+//{
+//    if (group == NULL) {
+//        [self sendAsynchronousRequest:request
+//                                queue:queue
+//                    completionHandler:handler];
+//    } else {
+//        dispatch_group_enter(group);
+//        [self sendAsynchronousRequest:request
+//                                queue:queue
+//                    completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+//                        handler(response, data, error);
+//                        dispatch_group_leave(group);
+//                    }];
+//    }
+//}
 
 
 - (void)didReceiveMemoryWarning {
