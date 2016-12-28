@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B134F1A1E14082300D3D313 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B134F191E14082300D3D313 /* AsyncSocket.m */; };
+		7B134F1B1E14082300D3D313 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B134F191E14082300D3D313 /* AsyncSocket.m */; };
+		7B134F1F1E1408BC00D3D313 /* EchoMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B134F1D1E1408BC00D3D313 /* EchoMain.m */; };
+		7B134F211E1408D100D3D313 /* EchoServerMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B134F1E1E1408BC00D3D313 /* EchoServerMain.m */; };
 		7B144BA21E12B3B100219B0C /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B144BA11E12B3B100219B0C /* CoreServices.framework */; };
-		7B144BA51E12B45200219B0C /* EchoMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B144BA31E12B45200219B0C /* EchoMain.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		7B144BA91E12B49A00219B0C /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B144BA81E12B49A00219B0C /* AsyncSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		7B144BAD1E12B51500219B0C /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B144BA81E12B49A00219B0C /* AsyncSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7B144BAF1E12B51500219B0C /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B144BA11E12B3B100219B0C /* CoreServices.framework */; };
-		7B144BB51E12B52200219B0C /* EchoServerMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B144BA41E12B45200219B0C /* EchoServerMain.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,12 +37,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7B134F181E14082300D3D313 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncSocket.h; path = ../AsyncSocket.h; sourceTree = "<group>"; };
+		7B134F191E14082300D3D313 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocket.m; path = ../AsyncSocket.m; sourceTree = "<group>"; };
+		7B134F1D1E1408BC00D3D313 /* EchoMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EchoMain.m; sourceTree = SOURCE_ROOT; };
+		7B134F1E1E1408BC00D3D313 /* EchoServerMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EchoServerMain.m; sourceTree = SOURCE_ROOT; };
 		7B144B931E12B35100219B0C /* EchoMain */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EchoMain; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B144BA11E12B3B100219B0C /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
-		7B144BA31E12B45200219B0C /* EchoMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EchoMain.m; sourceTree = "<group>"; };
-		7B144BA41E12B45200219B0C /* EchoServerMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EchoServerMain.m; sourceTree = "<group>"; };
-		7B144BA71E12B49A00219B0C /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
-		7B144BA81E12B49A00219B0C /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
 		7B144BB41E12B51500219B0C /* EchoServerMain */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EchoServerMain; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -66,12 +66,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B134F1C1E14082B00D3D313 /* AsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				7B134F191E14082300D3D313 /* AsyncSocket.m */,
+				7B134F181E14082300D3D313 /* AsyncSocket.h */,
+			);
+			name = AsyncSocket;
+			sourceTree = "<group>";
+		};
 		7B144B8A1E12B35100219B0C = {
 			isa = PBXGroup;
 			children = (
-				7B144BA71E12B49A00219B0C /* AsyncSocket.h */,
-				7B144BA81E12B49A00219B0C /* AsyncSocket.m */,
-				7B144B951E12B35100219B0C /* TestAsynSocket */,
+				7B134F1C1E14082B00D3D313 /* AsyncSocket */,
+				7B144B951E12B35100219B0C /* Source */,
 				7B144B941E12B35100219B0C /* Products */,
 				7B144BA01E12B3B100219B0C /* Frameworks */,
 			);
@@ -86,12 +94,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7B144B951E12B35100219B0C /* TestAsynSocket */ = {
+		7B144B951E12B35100219B0C /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				7B144BA31E12B45200219B0C /* EchoMain.m */,
-				7B144BA41E12B45200219B0C /* EchoServerMain.m */,
+				7B134F1D1E1408BC00D3D313 /* EchoMain.m */,
+				7B134F1E1E1408BC00D3D313 /* EchoServerMain.m */,
 			);
+			name = Source;
 			path = TestAsynSocket;
 			sourceTree = "<group>";
 		};
@@ -159,7 +168,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7B144B8E1E12B35100219B0C /* Build configuration list for PBXProject "TestAsynSocket" */;
+			buildConfigurationList = 7B144B8E1E12B35100219B0C /* Build configuration list for PBXProject "AsyncSocketSample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -182,8 +191,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B144BA51E12B45200219B0C /* EchoMain.m in Sources */,
-				7B144BA91E12B49A00219B0C /* AsyncSocket.m in Sources */,
+				7B134F1A1E14082300D3D313 /* AsyncSocket.m in Sources */,
+				7B134F1F1E1408BC00D3D313 /* EchoMain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,8 +200,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B144BB51E12B52200219B0C /* EchoServerMain.m in Sources */,
-				7B144BAD1E12B51500219B0C /* AsyncSocket.m in Sources */,
+				7B134F211E1408D100D3D313 /* EchoServerMain.m in Sources */,
+				7B134F1B1E14082300D3D313 /* AsyncSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +298,7 @@
 		7B144B9B1E12B35100219B0C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				DEVELOPMENT_TEAM = RN42P92PY7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -297,6 +307,7 @@
 		7B144B9C1E12B35100219B0C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				DEVELOPMENT_TEAM = RN42P92PY7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -305,6 +316,7 @@
 		7B144BB21E12B51500219B0C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				DEVELOPMENT_TEAM = RN42P92PY7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -313,6 +325,7 @@
 		7B144BB31E12B51500219B0C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				DEVELOPMENT_TEAM = RN42P92PY7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -321,7 +334,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7B144B8E1E12B35100219B0C /* Build configuration list for PBXProject "TestAsynSocket" */ = {
+		7B144B8E1E12B35100219B0C /* Build configuration list for PBXProject "AsyncSocketSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7B144B981E12B35100219B0C /* Debug */,
@@ -337,6 +350,7 @@
 				7B144B9C1E12B35100219B0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7B144BB11E12B51500219B0C /* Build configuration list for PBXNativeTarget "EchoServerMain" */ = {
 			isa = XCConfigurationList;
