@@ -75,14 +75,8 @@
 		// number reserved by the operating system.
 		
 		NSLog (@"Cannot accept connections on port %u. Error domain %@ code %d (%@). Exiting.", port, [err domain], [err code], [err localizedDescription]);
-//        [acceptor disconnect];
-//        [sockets removeObject:acceptor];
-//        AsyncSocket *acceptor = [[AsyncSocket alloc] initWithDelegate:self];
-//        [sockets addObject:acceptor];
-//        [acceptor release];
-//        [self performSelector:@selector(acceptOnPortString:) withObject:str afterDelay:1.0];
+		exit(1);
 	}
-
 }
 
 

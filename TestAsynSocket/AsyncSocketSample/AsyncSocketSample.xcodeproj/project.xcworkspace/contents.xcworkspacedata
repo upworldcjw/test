@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/cjw/Documents/GitRepo/MyGithub/test/TestAsynSocket/TestAsynSocket/AsyncSocketSample.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>
