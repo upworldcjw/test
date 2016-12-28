@@ -42,6 +42,13 @@ void showHelp();
 - (id)init
 {
 	self = [super init];
+    
+    NSMutableData *buffer;
+    buffer = [NSMutableData dataWithLength:10];
+    NSLog(@"%d",buffer.length);
+    
+    [buffer increaseLengthBy:10];
+    NSLog(@"%d",buffer.length);
 
 	// Create socket.
 	NSLog (@"Creating socket.");
@@ -89,7 +96,6 @@ void showHelp();
 	shouldExitLoop = NO;
 	while (!shouldExitLoop)
 	{
-        //NSLog(@"%f",CFAbsoluteTimeGetCurrent());
 		[self readFromStdIn];
 		[[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1.0]];
 	}
@@ -148,7 +154,7 @@ void showHelp();
 - (void)readFromStdIn
 {
 	Byte c;
-	while (read(STDIN_FILENO, &c, 1) == 1)
+	while (read (STDIN_FILENO, &c, 1) == 1)
 	{
 		[text appendString: [NSString stringWithFormat:@"%c", c]];
 		if (c == '\n') [self doTextCommand];
