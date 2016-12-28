@@ -440,7 +440,7 @@ static void MyCFWriteStreamCallback (CFWriteStreamRef stream, CFStreamEventType 
 		// However, the kernel will choose a different port for both theSocket and theSocket6
 		// So we grab the port the kernel choose for theSocket, and set it as the port for theSocket6
 		UInt16 chosenPort = [self localPort:theSocket];
-		
+        NSLog(@"chosenPort %d",chosenPort);
 		struct sockaddr_in6 *pSockAddr6 = (struct sockaddr_in6 *)[address6 bytes];
 		pSockAddr6->sin6_port = chosenPort;
     }

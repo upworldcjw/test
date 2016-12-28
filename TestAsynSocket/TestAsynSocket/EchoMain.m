@@ -89,7 +89,7 @@ void showHelp();
 	shouldExitLoop = NO;
 	while (!shouldExitLoop)
 	{
-        NSLog(@"%f",CFAbsoluteTimeGetCurrent());
+        //NSLog(@"%f",CFAbsoluteTimeGetCurrent());
 		[self readFromStdIn];
 		[[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1.0]];
 	}
