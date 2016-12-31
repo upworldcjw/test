@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import <TestStaticLib/TestStaticLib.h>
+
 @interface AppDelegate ()
 
 @end

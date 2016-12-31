@@ -18,5 +18,10 @@
 @end
 
 @implementation TestStaticLib
-
+- (instancetype)init{
+    if (self = [super init]) {
+        [[Teacher alloc] init];
+    }
+    return self;
+}
 @end

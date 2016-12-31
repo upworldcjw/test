@@ -9,5 +9,10 @@
 #import "Teacher.h"
 
 @implementation Teacher
-
+- (instancetype)init{
+    if (self = [super init]) {
+        NSLog(@"inner Teacher");
+    }
+    return self;
+}
 @end

@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+static void test(){
+    printf("inner test");
+}
 @interface TestStaticLib : NSObject
 
 @end

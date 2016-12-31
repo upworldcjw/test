@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B5A7E831E156A57000ACCAB /* libTestStaticLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B5A7E7F1E1569B4000ACCAB /* libTestStaticLib.a */; };
 		E54609E81DB766ED00BB2F9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E54609E71DB766ED00BB2F9D /* main.m */; };
 		E54609EB1DB766ED00BB2F9D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E54609EA1DB766ED00BB2F9D /* AppDelegate.m */; };
 		E54609EE1DB766ED00BB2F9D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E54609ED1DB766ED00BB2F9D /* ViewController.m */; };
@@ -14,11 +15,35 @@
 		E54609F31DB766ED00BB2F9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E54609F21DB766ED00BB2F9D /* Assets.xcassets */; };
 		E54609F61DB766ED00BB2F9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E54609F41DB766ED00BB2F9D /* LaunchScreen.storyboard */; };
 		E5460A011DB766ED00BB2F9D /* TestAgStaticLibUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5460A001DB766ED00BB2F9D /* TestAgStaticLibUITests.m */; };
-		E5460A211DB7761900BB2F9D /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = E5460A201DB7761900BB2F9D /* Person.m */; };
-		E5460A4C1DB781A700BB2F9D /* Teacher.m in Sources */ = {isa = PBXBuildFile; fileRef = E5460A4B1DB781A700BB2F9D /* Teacher.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+		7B5A7E841E156A94000ACCAB /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = image.png;
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "# copypng\n";
+		};
+/* End PBXBuildRule section */
+
 /* Begin PBXContainerItemProxy section */
+		7B5A7E7E1E1569B4000ACCAB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B5A7E7A1E1569B4000ACCAB /* TestStaticLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E54609CE1DB765C500BB2F9D;
+			remoteInfo = TestStaticLib;
+		};
+		7B5A7E801E1569BF000ACCAB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B5A7E7A1E1569B4000ACCAB /* TestStaticLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E54609CD1DB765C500BB2F9D;
+			remoteInfo = TestStaticLib;
+		};
 		E54609FD1DB766ED00BB2F9D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E54609DB1DB766ED00BB2F9D /* Project object */;
@@ -26,23 +51,10 @@
 			remoteGlobalIDString = E54609E21DB766ED00BB2F9D;
 			remoteInfo = TestAgStaticLib;
 		};
-		E5460A421DB7812800BB2F9D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E5460A3E1DB7812800BB2F9D /* TestStaticLib.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E54609CE1DB765C500BB2F9D;
-			remoteInfo = TestStaticLib;
-		};
-		E5460A441DB7813400BB2F9D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E5460A3E1DB7812800BB2F9D /* TestStaticLib.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = E54609CD1DB765C500BB2F9D;
-			remoteInfo = TestStaticLib;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B5A7E7A1E1569B4000ACCAB /* TestStaticLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TestStaticLib.xcodeproj; path = TestAgStaticLib/TestStaticLib.xcodeproj; sourceTree = "<group>"; };
 		E54609E31DB766ED00BB2F9D /* TestAgStaticLib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestAgStaticLib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E54609E71DB766ED00BB2F9D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E54609E91DB766ED00BB2F9D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,11 +68,6 @@
 		E54609FC1DB766ED00BB2F9D /* TestAgStaticLibUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestAgStaticLibUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5460A001DB766ED00BB2F9D /* TestAgStaticLibUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestAgStaticLibUITests.m; sourceTree = "<group>"; };
 		E5460A021DB766ED00BB2F9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E5460A1F1DB7761900BB2F9D /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
-		E5460A201DB7761900BB2F9D /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
-		E5460A3E1DB7812800BB2F9D /* TestStaticLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TestStaticLib.xcodeproj; path = TestAgStaticLib/TestStaticLib.xcodeproj; sourceTree = "<group>"; };
-		E5460A4A1DB781A700BB2F9D /* Teacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teacher.h; sourceTree = "<group>"; };
-		E5460A4B1DB781A700BB2F9D /* Teacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Teacher.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B5A7E831E156A57000ACCAB /* libTestStaticLib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,10 +89,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B5A7E7B1E1569B4000ACCAB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B5A7E7F1E1569B4000ACCAB /* libTestStaticLib.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		E54609DA1DB766ED00BB2F9D = {
 			isa = PBXGroup;
 			children = (
-				E5460A3E1DB7812800BB2F9D /* TestStaticLib.xcodeproj */,
+				7B5A7E7A1E1569B4000ACCAB /* TestStaticLib.xcodeproj */,
 				E54609E51DB766ED00BB2F9D /* TestAgStaticLib */,
 				E54609FF1DB766ED00BB2F9D /* TestAgStaticLibUITests */,
 				E54609E41DB766ED00BB2F9D /* Products */,
@@ -112,10 +128,6 @@
 				E54609F41DB766ED00BB2F9D /* LaunchScreen.storyboard */,
 				E54609F71DB766ED00BB2F9D /* Info.plist */,
 				E54609E61DB766ED00BB2F9D /* Supporting Files */,
-				E5460A1F1DB7761900BB2F9D /* Person.h */,
-				E5460A201DB7761900BB2F9D /* Person.m */,
-				E5460A4A1DB781A700BB2F9D /* Teacher.h */,
-				E5460A4B1DB781A700BB2F9D /* Teacher.m */,
 			);
 			path = TestAgStaticLib;
 			sourceTree = "<group>";
@@ -137,14 +149,6 @@
 			path = TestAgStaticLibUITests;
 			sourceTree = "<group>";
 		};
-		E5460A3F1DB7812800BB2F9D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E5460A431DB7812800BB2F9D /* libTestStaticLib.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -157,9 +161,10 @@
 				E54609E11DB766ED00BB2F9D /* Resources */,
 			);
 			buildRules = (
+				7B5A7E841E156A94000ACCAB /* PBXBuildRule */,
 			);
 			dependencies = (
-				E5460A451DB7813400BB2F9D /* PBXTargetDependency */,
+				7B5A7E811E1569BF000ACCAB /* PBXTargetDependency */,
 			);
 			name = TestAgStaticLib;
 			productName = TestAgStaticLib;
@@ -190,7 +195,7 @@
 		E54609DB1DB766ED00BB2F9D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = jianwei;
 				TargetAttributes = {
 					E54609E21DB766ED00BB2F9D = {
@@ -218,8 +223,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = E5460A3F1DB7812800BB2F9D /* Products */;
-					ProjectRef = E5460A3E1DB7812800BB2F9D /* TestStaticLib.xcodeproj */;
+					ProductGroup = 7B5A7E7B1E1569B4000ACCAB /* Products */;
+					ProjectRef = 7B5A7E7A1E1569B4000ACCAB /* TestStaticLib.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -231,11 +236,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		E5460A431DB7812800BB2F9D /* libTestStaticLib.a */ = {
+		7B5A7E7F1E1569B4000ACCAB /* libTestStaticLib.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libTestStaticLib.a;
-			remoteRef = E5460A421DB7812800BB2F9D /* PBXContainerItemProxy */;
+			remoteRef = 7B5A7E7E1E1569B4000ACCAB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -267,8 +272,6 @@
 			files = (
 				E54609EE1DB766ED00BB2F9D /* ViewController.m in Sources */,
 				E54609EB1DB766ED00BB2F9D /* AppDelegate.m in Sources */,
-				E5460A211DB7761900BB2F9D /* Person.m in Sources */,
-				E5460A4C1DB781A700BB2F9D /* Teacher.m in Sources */,
 				E54609E81DB766ED00BB2F9D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,15 +287,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7B5A7E811E1569BF000ACCAB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TestStaticLib;
+			targetProxy = 7B5A7E801E1569BF000ACCAB /* PBXContainerItemProxy */;
+		};
 		E54609FE1DB766ED00BB2F9D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E54609E21DB766ED00BB2F9D /* TestAgStaticLib */;
 			targetProxy = E54609FD1DB766ED00BB2F9D /* PBXContainerItemProxy */;
-		};
-		E5460A451DB7813400BB2F9D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = TestStaticLib;
-			targetProxy = E5460A441DB7813400BB2F9D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -334,6 +337,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -356,6 +360,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/",
+					"$(SRCROOT)/TestStaticLib/TestStaticLib",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -382,6 +390,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -398,6 +407,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/",
+					"$(SRCROOT)/TestStaticLib/TestStaticLib",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -411,7 +424,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = RN42P92PY7;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/TestStaticLib";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/TestStaticLib/TestStaticLib",
+					"$(SRCROOT)/",
+				);
 				INFOPLIST_FILE = TestAgStaticLib/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -428,7 +444,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = RN42P92PY7;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/TestStaticLib";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/TestStaticLib/TestStaticLib",
+					"$(SRCROOT)/",
+				);
 				INFOPLIST_FILE = TestAgStaticLib/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (

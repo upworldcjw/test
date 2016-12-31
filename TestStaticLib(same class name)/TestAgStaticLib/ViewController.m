@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "TestStaticLib/TestStaticLib.h"
+
 
 @interface ViewController ()
 
@@ -16,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[TestStaticLib alloc] init];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
