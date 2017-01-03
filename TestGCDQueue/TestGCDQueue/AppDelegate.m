@@ -7,6 +7,18 @@
 //
 
 #import "AppDelegate.h"
+@interface Person : NSObject
+@end
+
+@implementation Person
+
+- (void)test{
+    NSLog(@"test");
+}
+- (void)dealloc{
+    NSLog(@"Person dealloc");
+}
+@end
 
 @interface AppDelegate ()
 
@@ -17,6 +29,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    {
+        Person *son = [[Person alloc] init];
+        [son performSelector:@selector(test) withObject:nil afterDelay:0.1];
+        [NSObject cancelPreviousPerformRequestsWithTarget:son];
+    }
     return YES;
 }
 
