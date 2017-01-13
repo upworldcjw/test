@@ -1,12 +1,12 @@
 PODS:
-  - JKCategories (1.5)
+  - ULPriorityView (0.0.3)
 
 DEPENDENCIES:
-  - JKCategories
+  - ULPriorityView
 
 SPEC CHECKSUMS:
-  JKCategories: 863f4c7ed2d521ee6bf72ceea97948da23bb5af4
+  ULPriorityView: 2707d1c21c9d36c7ac61f1924cf08829c6b00e54
 
-PODFILE CHECKSUM: 569836e70171ed0673333afa2ebef59594d6e8df
+PODFILE CHECKSUM: eeea5fcec6ff0ce0ba41e102d113db8fccc38046
 
 COCOAPODS: 1.2.0.beta.1

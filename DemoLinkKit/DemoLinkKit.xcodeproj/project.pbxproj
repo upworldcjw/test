@@ -24,6 +24,7 @@
 		E5571CD71E28D6EA0067DECA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5571CC91E28D5D40067DECA /* Main.storyboard */; };
 		E5571CD81E28D6EC0067DECA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5571CCA1E28D5D40067DECA /* ViewController.swift */; };
 		E5571CDB1E28DF7C0067DECA /* DemoLinkKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 79309EAD1E24D9BB00CA17CA /* DemoLinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E5571CDE1E28E4100067DECA /* TestObjectivec.m in Sources */ = {isa = PBXBuildFile; fileRef = E5571CDD1E28E4100067DECA /* TestObjectivec.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,6 +64,8 @@
 		E5571CC81E28D5D40067DECA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = DemoLinkKitDemo/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		E5571CC91E28D5D40067DECA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = DemoLinkKitDemo/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		E5571CCA1E28D5D40067DECA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = DemoLinkKitDemo/ViewController.swift; sourceTree = SOURCE_ROOT; };
+		E5571CDC1E28E4100067DECA /* TestObjectivec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestObjectivec.h; path = DemoLinkKitDemo/TestObjectivec.h; sourceTree = SOURCE_ROOT; };
+		E5571CDD1E28E4100067DECA /* TestObjectivec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestObjectivec.m; path = DemoLinkKitDemo/TestObjectivec.m; sourceTree = SOURCE_ROOT; };
 		EA42754C4A0A5501A6DA7EA5 /* Pods_DemoLinkKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoLinkKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F875C1ECEFA9D8D3738FF796 /* Pods-DemoLinkKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoLinkKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoLinkKitDemo/Pods-DemoLinkKitDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,6 +134,8 @@
 				E5571CC81E28D5D40067DECA /* LaunchScreen.storyboard */,
 				E5571CC91E28D5D40067DECA /* Main.storyboard */,
 				E5571CCA1E28D5D40067DECA /* ViewController.swift */,
+				E5571CDC1E28E4100067DECA /* TestObjectivec.h */,
+				E5571CDD1E28E4100067DECA /* TestObjectivec.m */,
 			);
 			name = DemoLinkKitDemo;
 			path = IMChatKitDemo;
@@ -403,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5571CD81E28D6EC0067DECA /* ViewController.swift in Sources */,
+				E5571CDE1E28E4100067DECA /* TestObjectivec.m in Sources */,
 				E5571CD21E28D6D20067DECA /* AppDelegate.swift in Sources */,
 				E5571CD41E28D6DC0067DECA /* DemoChatViewController.swift in Sources */,
 			);

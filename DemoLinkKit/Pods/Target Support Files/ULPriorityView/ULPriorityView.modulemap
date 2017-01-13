@@ -1,0 +1,6 @@
+framework module ULPriorityView {
+  umbrella header "ULPriorityView-umbrella.h"
+
+  export *
+  module * { export * }
+}

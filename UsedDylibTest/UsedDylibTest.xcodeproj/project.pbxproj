@@ -268,6 +268,7 @@
 				TargetAttributes = {
 					E59B9D321D9CB901005FD6F3 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = RN42P92PY7;
 						ProvisioningStyle = Automatic;
 					};
 					E59B9D4B1D9CB901005FD6F3 = {
@@ -515,6 +516,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RN42P92PY7;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = UsedDylibTest/Info.plist;
@@ -529,6 +531,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RN42P92PY7;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = UsedDylibTest/Info.plist;

@@ -8,7 +8,9 @@
 //
 
 #import "ChatMessageController.h"
+@import ULPriorityView;
 
+#import <ULPriorityView/ULPriorityView.h>
 @interface ChatMessageController ()
 
 @end
