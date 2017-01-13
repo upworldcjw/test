@@ -1,0 +1,12 @@
+PODS:
+  - JKCategories (1.5)
+
+DEPENDENCIES:
+  - JKCategories
+
+SPEC CHECKSUMS:
+  JKCategories: 863f4c7ed2d521ee6bf72ceea97948da23bb5af4
+
+PODFILE CHECKSUM: 569836e70171ed0673333afa2ebef59594d6e8df
+
+COCOAPODS: 1.2.0.beta.1
