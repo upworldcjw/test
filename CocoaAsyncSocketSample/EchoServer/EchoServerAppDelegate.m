@@ -24,7 +24,9 @@
 #pragma mark -
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-@implementation EchoServerAppDelegate
+@implementation EchoServerAppDelegate{
+    NSInteger totolWriteBytes;
+}
 
 @synthesize window;
 
@@ -32,6 +34,7 @@
 {
 	if((self = [super init]))
 	{
+        totolWriteBytes = 0;
 		// Setup our logging framework.
 		// Logging isn't used in this file, but can optionally be enabled in GCDAsyncSocket.
 		[DDLog addLogger:[DDTTYLogger sharedInstance]];
@@ -185,8 +188,13 @@
     GCDAsyncSocket *firstSocket = connectedSockets[0];
     int i = 0;
     while (i++ < 10000) {
-       	NSString *welcomeMsg = @"Are you still there?Are you still there?Are you still there?Are you still there?Are you still there?Are you still there?\r\n";
-        welcomeMsg = [NSString stringWithFormat:@"%@_%d",welcomeMsg,i];
+//       	NSString *welcomeMsg = @"Are you still there?Are you still there?Are you still there?Are you still there?Are you still there?Are you still there?\r\n";
+//        welcomeMsg = [NSString stringWithFormat:@"%@_%d",welcomeMsg,i];
+//        NSData *welcomeData = [welcomeMsg dataUsingEncoding:NSUTF8StringEncoding];
+//        [firstSocket writeData:welcomeData withTimeout:-1 tag:WELCOME_MSG];
+        
+        NSString *welcomeMsg = @"Are there?";
+//        welcomeMsg = [NSString stringWithFormat:@"%@_%d",welcomeMsg,i];
         NSData *welcomeData = [welcomeMsg dataUsingEncoding:NSUTF8StringEncoding];
         [firstSocket writeData:welcomeData withTimeout:-1 tag:WELCOME_MSG];
     }
@@ -225,7 +233,8 @@
 {
 	if (tag == ECHO_MSG)
 	{
-		[sock readDataToData:[GCDAsyncSocket CRLFData] withTimeout:READ_TIMEOUT tag:0];
+//		[sock readDataToData:[GCDAsyncSocket CRLFData] withTimeout:READ_TIMEOUT tag:0];
+//        totolWriteBytes += sock.writeCount;
 	}
 }
 

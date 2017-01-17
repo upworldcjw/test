@@ -15,11 +15,16 @@ static const int ddLogLevel = LOG_LEVEL_OFF;
 
 - (void)normalConnect
 {
-	NSError *error = nil;
-	if (![asyncSocket connectToHost:@"localhost" onPort:5555 error:&error])
-	{
-		DDLogError(@"Error connecting: %@", error);
-	}
+//	NSError *error = nil;
+//	if (![asyncSocket connectToHost:@"localhost" onPort:5555 error:&error])
+//	{
+//		DDLogError(@"Error connecting: %@", error);
+//	}
+    NSError *error = nil;
+    if (![asyncSocket connectToHost:@"10.0.100.109" onPort:5555 error:&error])
+    {
+        DDLogError(@"Error connecting: %@", error);
+    }
 }
 
 - (void)secureConnect
@@ -66,7 +71,7 @@ static const int ddLogLevel = LOG_LEVEL_OFF;
     [but addTarget:self action:@selector(readLength) forControlEvents:UIControlEventTouchUpInside];
     but.backgroundColor = [UIColor redColor];
     [viewController.view addSubview:but];
-    [but setFrame:CGRectMake(40, 80, 100, 100)];
+    [but setFrame:CGRectMake(40, 80, 120, 40)];
     
     
     UIButton *but2 = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -74,7 +79,7 @@ static const int ddLogLevel = LOG_LEVEL_OFF;
     [but2 addTarget:self action:@selector(readData) forControlEvents:UIControlEventTouchUpInside];
     but2.backgroundColor = [UIColor redColor];
     [viewController.view addSubview:but2];
-    [but2 setFrame:CGRectMake(40, 180, 100, 100)];
+    [but2 setFrame:CGRectMake(40, 180, 120, 40)];
 	
 	return YES;
 }
