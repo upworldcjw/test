@@ -25,13 +25,24 @@
     [but addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
     // Do any additional setup after loading the view, typically from a nib.
 
-//    NSURL *url = [NSURL URLWithString:@"itms-apps://itunes.apple.com/cn/app/jie-zou-da-shi/id493901993?mt=8&action=write-review"];
-//    
-//    url = [NSURL URLWithString:@"itms-apps://itunes.apple.com/cn/app/jie-zou-da-shi/id493901993?mt=8"];
+    NSURL *url = [NSURL URLWithString:@"itms-apps://itunes.apple.com/cn/app/jie-zou-da-shi/id493901993?mt=8&action=write-review"];
+
+    url = [NSURL URLWithString:@"itms-apps://itunes.apple.com/cn/app/jie-zou-da-shi/id493901993?mt=8"];
+    
+    
 //    [[UIApplication sharedApplication] openURL:url];
 
 //    [[UIApplication sharedApplication] openURL:url options:nil completionHandler:NULL];
-//    [[UIApplication sharedApplication] openURL:url];
+    [[UIApplication sharedApplication] openURL:url];
+    
+    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 100, 100, 100)];
+    textView.dataDetectorTypes = UIDataDetectorTypeLink;
+    textView.editable = NO;
+    textView.text = @"http://www.inke.com?action=write-review";
+//    textView.text = @"http://www.inke.com";
+//    textView.text = @"itms-apps://itunes.apple.com/cn/app/jie-zou-da-shi/id493901993";
+    [self.view addSubview:textView];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -53,6 +64,8 @@
         [SKStoreReviewController requestReview];
 //        [self performSelector:@selector(present) withObject:nil afterDelay:10];
     }
+    
+    [self evaluate];
 }
 
 - (void)present{
@@ -61,6 +74,64 @@
     [self presentViewController:vc animated:NO completion:NULL];
 
 }
+
+
+
+- (void)evaluate{
+    
+    Class isAllow = NSClassFromString(@"SKStoreProductViewController");
+    
+    if (isAllow != nil && ![[UIDevice currentDevice].model  isEqualToString:@"iPhone Simulator"])
+        
+    {
+        
+//        [self showLoadingView];
+        
+        __weak __typeof(self) weakself = self;
+        
+        SKStoreProductViewController *product = [[SKStoreProductViewController alloc] init];
+        
+        product.delegate = self;
+        
+        [product loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:@"493901993"} completionBlock:^(BOOL result, NSError *error) {
+            
+            __strong __typeof(weakself) strongself = weakself;
+            
+//            [strongself hideLoadingView];
+            
+            if (error) {
+                
+                NSLog(@"error = %@ with userinfo = %@",error,[error userInfo]);
+                
+            } else {
+                
+                [strongself presentViewController:product animated:YES completion:nil];
+                
+            }
+            
+        }];
+        
+    }
+    
+    else
+        
+    {
+        
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@""]];
+        
+    }
+    
+}
+
+- (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController
+
+{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+
 
 
 
