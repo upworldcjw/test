@@ -1,0 +1,11 @@
+CONFIGURATION_BUILD_DIR = $PODS_CONFIGURATION_BUILD_DIR/IKUIKit
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/IKUIKit" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/IKCrypt" "${PODS_ROOT}/Headers/Public/IKFoundation" "${PODS_ROOT}/Headers/Public/IKLog" "${PODS_ROOT}/Headers/Public/IKUIKit" "${PODS_ROOT}/Headers/Public/MIHCrypto" "${PODS_ROOT}/Headers/Public/Masonry" "${PODS_ROOT}/Headers/Public/OpenSSL-Universal" "${PODS_ROOT}/Headers/Public/SDWebImageInke" "${PODS_ROOT}/Headers/Public/SSZipArchive" "${PODS_ROOT}/Headers/Public/SocketRocket" "${PODS_ROOT}/Headers/Public/WeexSDK" "${PODS_ROOT}/Headers/Public/YYCache" "${PODS_ROOT}/Headers/Public/YYModel" "${PODS_ROOT}/Headers/Public/YYText" "${PODS_ROOT}/Headers/Public/libwebpinke"
+LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/AFNetworking" "$PODS_CONFIGURATION_BUILD_DIR/IKFoundation" "$PODS_CONFIGURATION_BUILD_DIR/IKLog" "$PODS_CONFIGURATION_BUILD_DIR/MIHCrypto" "$PODS_CONFIGURATION_BUILD_DIR/Masonry" "$PODS_CONFIGURATION_BUILD_DIR/SDWebImageInke" "$PODS_CONFIGURATION_BUILD_DIR/SSZipArchive" "$PODS_CONFIGURATION_BUILD_DIR/YYCache" "$PODS_CONFIGURATION_BUILD_DIR/YYModel" "$PODS_CONFIGURATION_BUILD_DIR/YYText" "$PODS_CONFIGURATION_BUILD_DIR/libwebpinke"
+OTHER_LDFLAGS = -l"c" -l"c++" -l"sqlite3" -l"z" -framework "AVFoundation" -framework "AdSupport" -framework "CoreFoundation" -framework "CoreGraphics" -framework "MobileCoreServices" -framework "QuartzCore" -framework "Security" -framework "SystemConfiguration" -framework "UIKit"
+PODS_BUILD_DIR = $BUILD_DIR
+PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_ROOT = ${SRCROOT}
+PODS_TARGET_SRCROOT = ${PODS_ROOT}/IKUIKit
+PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.${PRODUCT_NAME:rfc1034identifier}
+SKIP_INSTALL = YES

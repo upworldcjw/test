@@ -1,0 +1,1 @@
+../../../IKUIKit/IKUIKit/ScrollBanner/IKScrollBannerView.h

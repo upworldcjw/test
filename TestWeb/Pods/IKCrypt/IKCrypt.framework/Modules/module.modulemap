@@ -1,0 +1,6 @@
+framework module IKCrypt {
+  umbrella header "IKCrypt.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,1 @@
+../../../../libwebpinke/src/webp/encode.h

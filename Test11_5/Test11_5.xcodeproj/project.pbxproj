@@ -1,0 +1,956 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7B38BFE91E38B52F0071E75F /* daytimetcpcli.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B38BFE81E38B52F0071E75F /* daytimetcpcli.c */; };
+		7B38C00A1E38BC6E0071E75F /* daytimetcpcli1.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B38BFF81E38BC420071E75F /* daytimetcpcli1.c */; };
+		7B38C0631E38BC930071E75F /* daytimetcpcli2.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B38BFF91E38BC420071E75F /* daytimetcpcli2.c */; };
+		7B38C0641E38BCB10071E75F /* daytimetcpcli3.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B38BFFA1E38BC420071E75F /* daytimetcpcli3.c */; };
+		7B38C0651E38BCB40071E75F /* daytimetcpcliv6.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B38BFFB1E38BC420071E75F /* daytimetcpcliv6.c */; };
+		7B38C0661E38BCC50071E75F /* daytimetcpsrv.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B38BFFC1E38BC420071E75F /* daytimetcpsrv.c */; };
+		7B38C0671E38BCD30071E75F /* daytimetcpsrv1.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B38BFFD1E38BC420071E75F /* daytimetcpsrv1.c */; };
+		7B38C0681E38BCE00071E75F /* daytimetcpsrv2.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B38BFFE1E38BC420071E75F /* daytimetcpsrv2.c */; };
+		7B38C0691E38BCEF0071E75F /* daytimetcpsrv3.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B38BFFF1E38BC420071E75F /* daytimetcpsrv3.c */; };
+		7B38C06A1E38BCFF0071E75F /* daytimetcpsrvv6.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B38C0001E38BC420071E75F /* daytimetcpsrvv6.c */; };
+		7B38C06D1E38BD960071E75F /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B38C06B1E38BD960071E75F /* error.c */; };
+		7B38C06E1E38BD960071E75F /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B38C06B1E38BD960071E75F /* error.c */; };
+		7B38C06F1E38BD960071E75F /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B38C06B1E38BD960071E75F /* error.c */; };
+		7B38C0701E38BD960071E75F /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B38C06B1E38BD960071E75F /* error.c */; };
+		7B38C0711E38BD960071E75F /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B38C06B1E38BD960071E75F /* error.c */; };
+		7B38C0721E38BD960071E75F /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B38C06B1E38BD960071E75F /* error.c */; };
+		7B38C0731E38BD960071E75F /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B38C06B1E38BD960071E75F /* error.c */; };
+		7B38C0741E38BD960071E75F /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B38C06B1E38BD960071E75F /* error.c */; };
+		7B38C0751E38BD960071E75F /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B38C06B1E38BD960071E75F /* error.c */; };
+		7B38C0761E38BD960071E75F /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B38C06B1E38BD960071E75F /* error.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7B38BFDC1E38B4FC0071E75F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		7B38BFF31E38BC340071E75F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		7B38C0111E38BC760071E75F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		7B38C01C1E38BC780071E75F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		7B38C0271E38BC7A0071E75F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		7B38C0321E38BC7F0071E75F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		7B38C03D1E38BC800071E75F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		7B38C0481E38BC810071E75F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		7B38C0531E38BC810071E75F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		7B38C05E1E38BC820071E75F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		7B38BFDE1E38B4FC0071E75F /* daytimetcpcli */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = daytimetcpcli; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B38BFE81E38B52F0071E75F /* daytimetcpcli.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = daytimetcpcli.c; sourceTree = "<group>"; };
+		7B38BFF71E38BC340071E75F /* daytimetcpcli1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = daytimetcpcli1; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B38BFF81E38BC420071E75F /* daytimetcpcli1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = daytimetcpcli1.c; sourceTree = "<group>"; };
+		7B38BFF91E38BC420071E75F /* daytimetcpcli2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = daytimetcpcli2.c; sourceTree = "<group>"; };
+		7B38BFFA1E38BC420071E75F /* daytimetcpcli3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = daytimetcpcli3.c; sourceTree = "<group>"; };
+		7B38BFFB1E38BC420071E75F /* daytimetcpcliv6.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = daytimetcpcliv6.c; sourceTree = "<group>"; };
+		7B38BFFC1E38BC420071E75F /* daytimetcpsrv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = daytimetcpsrv.c; sourceTree = "<group>"; };
+		7B38BFFD1E38BC420071E75F /* daytimetcpsrv1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = daytimetcpsrv1.c; sourceTree = "<group>"; };
+		7B38BFFE1E38BC420071E75F /* daytimetcpsrv2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = daytimetcpsrv2.c; sourceTree = "<group>"; };
+		7B38BFFF1E38BC420071E75F /* daytimetcpsrv3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = daytimetcpsrv3.c; sourceTree = "<group>"; };
+		7B38C0001E38BC420071E75F /* daytimetcpsrvv6.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = daytimetcpsrvv6.c; sourceTree = "<group>"; };
+		7B38C0151E38BC760071E75F /* daytimetcpcli2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = daytimetcpcli2; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B38C0201E38BC780071E75F /* daytimetcpcli3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = daytimetcpcli3; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B38C02B1E38BC7A0071E75F /* daytimetcpcliv6 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = daytimetcpcliv6; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B38C0361E38BC7F0071E75F /* daytimetcpsrv */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = daytimetcpsrv; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B38C0411E38BC800071E75F /* daytimetcpsrv1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = daytimetcpsrv1; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B38C04C1E38BC810071E75F /* daytimetcpsrv2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = daytimetcpsrv2; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B38C0571E38BC810071E75F /* daytimetcpsrv3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = daytimetcpsrv3; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B38C0621E38BC820071E75F /* daytimetcpsrvv6 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = daytimetcpsrvv6; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B38C06B1E38BD960071E75F /* error.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = error.c; sourceTree = "<group>"; };
+		7B38C06C1E38BD960071E75F /* unp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unp.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7B38BFDB1E38B4FC0071E75F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B38BFF21E38BC340071E75F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B38C0101E38BC760071E75F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B38C01B1E38BC780071E75F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B38C0261E38BC7A0071E75F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B38C0311E38BC7F0071E75F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B38C03C1E38BC800071E75F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B38C0471E38BC810071E75F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B38C0521E38BC810071E75F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B38C05D1E38BC820071E75F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7B38BFD51E38B4FC0071E75F = {
+			isa = PBXGroup;
+			children = (
+				7B38BFE01E38B4FC0071E75F /* Test11_5 */,
+				7B38BFDF1E38B4FC0071E75F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7B38BFDF1E38B4FC0071E75F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B38BFDE1E38B4FC0071E75F /* daytimetcpcli */,
+				7B38BFF71E38BC340071E75F /* daytimetcpcli1 */,
+				7B38C0151E38BC760071E75F /* daytimetcpcli2 */,
+				7B38C0201E38BC780071E75F /* daytimetcpcli3 */,
+				7B38C02B1E38BC7A0071E75F /* daytimetcpcliv6 */,
+				7B38C0361E38BC7F0071E75F /* daytimetcpsrv */,
+				7B38C0411E38BC800071E75F /* daytimetcpsrv1 */,
+				7B38C04C1E38BC810071E75F /* daytimetcpsrv2 */,
+				7B38C0571E38BC810071E75F /* daytimetcpsrv3 */,
+				7B38C0621E38BC820071E75F /* daytimetcpsrvv6 */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7B38BFE01E38B4FC0071E75F /* Test11_5 */ = {
+			isa = PBXGroup;
+			children = (
+				7B38C06B1E38BD960071E75F /* error.c */,
+				7B38C06C1E38BD960071E75F /* unp.h */,
+				7B38BFE81E38B52F0071E75F /* daytimetcpcli.c */,
+				7B38BFF81E38BC420071E75F /* daytimetcpcli1.c */,
+				7B38BFF91E38BC420071E75F /* daytimetcpcli2.c */,
+				7B38BFFA1E38BC420071E75F /* daytimetcpcli3.c */,
+				7B38BFFB1E38BC420071E75F /* daytimetcpcliv6.c */,
+				7B38BFFC1E38BC420071E75F /* daytimetcpsrv.c */,
+				7B38BFFD1E38BC420071E75F /* daytimetcpsrv1.c */,
+				7B38BFFE1E38BC420071E75F /* daytimetcpsrv2.c */,
+				7B38BFFF1E38BC420071E75F /* daytimetcpsrv3.c */,
+				7B38C0001E38BC420071E75F /* daytimetcpsrvv6.c */,
+			);
+			path = Test11_5;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7B38BFDD1E38B4FC0071E75F /* daytimetcpcli */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B38BFE51E38B4FC0071E75F /* Build configuration list for PBXNativeTarget "daytimetcpcli" */;
+			buildPhases = (
+				7B38BFDA1E38B4FC0071E75F /* Sources */,
+				7B38BFDB1E38B4FC0071E75F /* Frameworks */,
+				7B38BFDC1E38B4FC0071E75F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = daytimetcpcli;
+			productName = Test11_5;
+			productReference = 7B38BFDE1E38B4FC0071E75F /* daytimetcpcli */;
+			productType = "com.apple.product-type.tool";
+		};
+		7B38BFEE1E38BC340071E75F /* daytimetcpcli1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B38BFF41E38BC340071E75F /* Build configuration list for PBXNativeTarget "daytimetcpcli1" */;
+			buildPhases = (
+				7B38BFEF1E38BC340071E75F /* Sources */,
+				7B38BFF21E38BC340071E75F /* Frameworks */,
+				7B38BFF31E38BC340071E75F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = daytimetcpcli1;
+			productName = Test11_5;
+			productReference = 7B38BFF71E38BC340071E75F /* daytimetcpcli1 */;
+			productType = "com.apple.product-type.tool";
+		};
+		7B38C00B1E38BC760071E75F /* daytimetcpcli2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B38C0121E38BC760071E75F /* Build configuration list for PBXNativeTarget "daytimetcpcli2" */;
+			buildPhases = (
+				7B38C00C1E38BC760071E75F /* Sources */,
+				7B38C0101E38BC760071E75F /* Frameworks */,
+				7B38C0111E38BC760071E75F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = daytimetcpcli2;
+			productName = Test11_5;
+			productReference = 7B38C0151E38BC760071E75F /* daytimetcpcli2 */;
+			productType = "com.apple.product-type.tool";
+		};
+		7B38C0161E38BC780071E75F /* daytimetcpcli3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B38C01D1E38BC780071E75F /* Build configuration list for PBXNativeTarget "daytimetcpcli3" */;
+			buildPhases = (
+				7B38C0171E38BC780071E75F /* Sources */,
+				7B38C01B1E38BC780071E75F /* Frameworks */,
+				7B38C01C1E38BC780071E75F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = daytimetcpcli3;
+			productName = Test11_5;
+			productReference = 7B38C0201E38BC780071E75F /* daytimetcpcli3 */;
+			productType = "com.apple.product-type.tool";
+		};
+		7B38C0211E38BC7A0071E75F /* daytimetcpcliv6 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B38C0281E38BC7A0071E75F /* Build configuration list for PBXNativeTarget "daytimetcpcliv6" */;
+			buildPhases = (
+				7B38C0221E38BC7A0071E75F /* Sources */,
+				7B38C0261E38BC7A0071E75F /* Frameworks */,
+				7B38C0271E38BC7A0071E75F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = daytimetcpcliv6;
+			productName = Test11_5;
+			productReference = 7B38C02B1E38BC7A0071E75F /* daytimetcpcliv6 */;
+			productType = "com.apple.product-type.tool";
+		};
+		7B38C02C1E38BC7F0071E75F /* daytimetcpsrv */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B38C0331E38BC7F0071E75F /* Build configuration list for PBXNativeTarget "daytimetcpsrv" */;
+			buildPhases = (
+				7B38C02D1E38BC7F0071E75F /* Sources */,
+				7B38C0311E38BC7F0071E75F /* Frameworks */,
+				7B38C0321E38BC7F0071E75F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = daytimetcpsrv;
+			productName = Test11_5;
+			productReference = 7B38C0361E38BC7F0071E75F /* daytimetcpsrv */;
+			productType = "com.apple.product-type.tool";
+		};
+		7B38C0371E38BC800071E75F /* daytimetcpsrv1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B38C03E1E38BC800071E75F /* Build configuration list for PBXNativeTarget "daytimetcpsrv1" */;
+			buildPhases = (
+				7B38C0381E38BC800071E75F /* Sources */,
+				7B38C03C1E38BC800071E75F /* Frameworks */,
+				7B38C03D1E38BC800071E75F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = daytimetcpsrv1;
+			productName = Test11_5;
+			productReference = 7B38C0411E38BC800071E75F /* daytimetcpsrv1 */;
+			productType = "com.apple.product-type.tool";
+		};
+		7B38C0421E38BC810071E75F /* daytimetcpsrv2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B38C0491E38BC810071E75F /* Build configuration list for PBXNativeTarget "daytimetcpsrv2" */;
+			buildPhases = (
+				7B38C0431E38BC810071E75F /* Sources */,
+				7B38C0471E38BC810071E75F /* Frameworks */,
+				7B38C0481E38BC810071E75F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = daytimetcpsrv2;
+			productName = Test11_5;
+			productReference = 7B38C04C1E38BC810071E75F /* daytimetcpsrv2 */;
+			productType = "com.apple.product-type.tool";
+		};
+		7B38C04D1E38BC810071E75F /* daytimetcpsrv3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B38C0541E38BC810071E75F /* Build configuration list for PBXNativeTarget "daytimetcpsrv3" */;
+			buildPhases = (
+				7B38C04E1E38BC810071E75F /* Sources */,
+				7B38C0521E38BC810071E75F /* Frameworks */,
+				7B38C0531E38BC810071E75F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = daytimetcpsrv3;
+			productName = Test11_5;
+			productReference = 7B38C0571E38BC810071E75F /* daytimetcpsrv3 */;
+			productType = "com.apple.product-type.tool";
+		};
+		7B38C0581E38BC820071E75F /* daytimetcpsrvv6 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B38C05F1E38BC820071E75F /* Build configuration list for PBXNativeTarget "daytimetcpsrvv6" */;
+			buildPhases = (
+				7B38C0591E38BC820071E75F /* Sources */,
+				7B38C05D1E38BC820071E75F /* Frameworks */,
+				7B38C05E1E38BC820071E75F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = daytimetcpsrvv6;
+			productName = Test11_5;
+			productReference = 7B38C0621E38BC820071E75F /* daytimetcpsrvv6 */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7B38BFD61E38B4FC0071E75F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = UL;
+				TargetAttributes = {
+					7B38BFDD1E38B4FC0071E75F = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = RN42P92PY7;
+						ProvisioningStyle = Automatic;
+					};
+					7B38BFEE1E38BC340071E75F = {
+						DevelopmentTeam = RN42P92PY7;
+					};
+					7B38C00B1E38BC760071E75F = {
+						DevelopmentTeam = RN42P92PY7;
+					};
+					7B38C0161E38BC780071E75F = {
+						DevelopmentTeam = RN42P92PY7;
+					};
+					7B38C0211E38BC7A0071E75F = {
+						DevelopmentTeam = RN42P92PY7;
+					};
+					7B38C02C1E38BC7F0071E75F = {
+						DevelopmentTeam = RN42P92PY7;
+					};
+					7B38C0371E38BC800071E75F = {
+						DevelopmentTeam = RN42P92PY7;
+					};
+					7B38C0421E38BC810071E75F = {
+						DevelopmentTeam = RN42P92PY7;
+					};
+					7B38C04D1E38BC810071E75F = {
+						DevelopmentTeam = RN42P92PY7;
+					};
+					7B38C0581E38BC820071E75F = {
+						DevelopmentTeam = RN42P92PY7;
+					};
+				};
+			};
+			buildConfigurationList = 7B38BFD91E38B4FC0071E75F /* Build configuration list for PBXProject "Test11_5" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7B38BFD51E38B4FC0071E75F;
+			productRefGroup = 7B38BFDF1E38B4FC0071E75F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7B38BFDD1E38B4FC0071E75F /* daytimetcpcli */,
+				7B38BFEE1E38BC340071E75F /* daytimetcpcli1 */,
+				7B38C00B1E38BC760071E75F /* daytimetcpcli2 */,
+				7B38C0161E38BC780071E75F /* daytimetcpcli3 */,
+				7B38C0211E38BC7A0071E75F /* daytimetcpcliv6 */,
+				7B38C02C1E38BC7F0071E75F /* daytimetcpsrv */,
+				7B38C0371E38BC800071E75F /* daytimetcpsrv1 */,
+				7B38C0421E38BC810071E75F /* daytimetcpsrv2 */,
+				7B38C04D1E38BC810071E75F /* daytimetcpsrv3 */,
+				7B38C0581E38BC820071E75F /* daytimetcpsrvv6 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7B38BFDA1E38B4FC0071E75F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B38C06D1E38BD960071E75F /* error.c in Sources */,
+				7B38BFE91E38B52F0071E75F /* daytimetcpcli.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B38BFEF1E38BC340071E75F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B38C06E1E38BD960071E75F /* error.c in Sources */,
+				7B38C00A1E38BC6E0071E75F /* daytimetcpcli1.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B38C00C1E38BC760071E75F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B38C06F1E38BD960071E75F /* error.c in Sources */,
+				7B38C0631E38BC930071E75F /* daytimetcpcli2.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B38C0171E38BC780071E75F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B38C0641E38BCB10071E75F /* daytimetcpcli3.c in Sources */,
+				7B38C0701E38BD960071E75F /* error.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B38C0221E38BC7A0071E75F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B38C0651E38BCB40071E75F /* daytimetcpcliv6.c in Sources */,
+				7B38C0711E38BD960071E75F /* error.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B38C02D1E38BC7F0071E75F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B38C0721E38BD960071E75F /* error.c in Sources */,
+				7B38C0661E38BCC50071E75F /* daytimetcpsrv.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B38C0381E38BC800071E75F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B38C0671E38BCD30071E75F /* daytimetcpsrv1.c in Sources */,
+				7B38C0731E38BD960071E75F /* error.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B38C0431E38BC810071E75F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B38C0681E38BCE00071E75F /* daytimetcpsrv2.c in Sources */,
+				7B38C0741E38BD960071E75F /* error.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B38C04E1E38BC810071E75F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B38C0751E38BD960071E75F /* error.c in Sources */,
+				7B38C0691E38BCEF0071E75F /* daytimetcpsrv3.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B38C0591E38BC820071E75F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B38C06A1E38BCFF0071E75F /* daytimetcpsrvv6.c in Sources */,
+				7B38C0761E38BD960071E75F /* error.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7B38BFE31E38B4FC0071E75F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		7B38BFE41E38B4FC0071E75F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		7B38BFE61E38B4FC0071E75F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RN42P92PY7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7B38BFE71E38B4FC0071E75F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RN42P92PY7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7B38BFF51E38BC340071E75F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RN42P92PY7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7B38BFF61E38BC340071E75F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RN42P92PY7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7B38C0131E38BC760071E75F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RN42P92PY7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7B38C0141E38BC760071E75F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RN42P92PY7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7B38C01E1E38BC780071E75F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RN42P92PY7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7B38C01F1E38BC780071E75F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RN42P92PY7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7B38C0291E38BC7A0071E75F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RN42P92PY7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7B38C02A1E38BC7A0071E75F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RN42P92PY7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7B38C0341E38BC7F0071E75F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RN42P92PY7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7B38C0351E38BC7F0071E75F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RN42P92PY7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7B38C03F1E38BC800071E75F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RN42P92PY7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7B38C0401E38BC800071E75F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RN42P92PY7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7B38C04A1E38BC810071E75F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RN42P92PY7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7B38C04B1E38BC810071E75F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RN42P92PY7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7B38C0551E38BC810071E75F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RN42P92PY7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7B38C0561E38BC810071E75F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RN42P92PY7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7B38C0601E38BC820071E75F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RN42P92PY7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7B38C0611E38BC820071E75F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RN42P92PY7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7B38BFD91E38B4FC0071E75F /* Build configuration list for PBXProject "Test11_5" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B38BFE31E38B4FC0071E75F /* Debug */,
+				7B38BFE41E38B4FC0071E75F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B38BFE51E38B4FC0071E75F /* Build configuration list for PBXNativeTarget "daytimetcpcli" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B38BFE61E38B4FC0071E75F /* Debug */,
+				7B38BFE71E38B4FC0071E75F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B38BFF41E38BC340071E75F /* Build configuration list for PBXNativeTarget "daytimetcpcli1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B38BFF51E38BC340071E75F /* Debug */,
+				7B38BFF61E38BC340071E75F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B38C0121E38BC760071E75F /* Build configuration list for PBXNativeTarget "daytimetcpcli2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B38C0131E38BC760071E75F /* Debug */,
+				7B38C0141E38BC760071E75F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B38C01D1E38BC780071E75F /* Build configuration list for PBXNativeTarget "daytimetcpcli3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B38C01E1E38BC780071E75F /* Debug */,
+				7B38C01F1E38BC780071E75F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B38C0281E38BC7A0071E75F /* Build configuration list for PBXNativeTarget "daytimetcpcliv6" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B38C0291E38BC7A0071E75F /* Debug */,
+				7B38C02A1E38BC7A0071E75F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B38C0331E38BC7F0071E75F /* Build configuration list for PBXNativeTarget "daytimetcpsrv" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B38C0341E38BC7F0071E75F /* Debug */,
+				7B38C0351E38BC7F0071E75F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B38C03E1E38BC800071E75F /* Build configuration list for PBXNativeTarget "daytimetcpsrv1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B38C03F1E38BC800071E75F /* Debug */,
+				7B38C0401E38BC800071E75F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B38C0491E38BC810071E75F /* Build configuration list for PBXNativeTarget "daytimetcpsrv2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B38C04A1E38BC810071E75F /* Debug */,
+				7B38C04B1E38BC810071E75F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B38C0541E38BC810071E75F /* Build configuration list for PBXNativeTarget "daytimetcpsrv3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B38C0551E38BC810071E75F /* Debug */,
+				7B38C0561E38BC810071E75F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B38C05F1E38BC820071E75F /* Build configuration list for PBXNativeTarget "daytimetcpsrvv6" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B38C0601E38BC820071E75F /* Debug */,
+				7B38C0611E38BC820071E75F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7B38BFD61E38B4FC0071E75F /* Project object */;
+}
