@@ -97,6 +97,78 @@
     });
     NSLog(@"4");
 }
+//ceshi
+- (void)testDeallocQueue {
+    //
+    static void  *kTargetQueue = &kTargetQueue;
+    static void  *kQueue1 = &kQueue1;
+    static void  *kQueue2 = &kQueue2;
+    
+    dispatch_queue_t targetQueue = dispatch_queue_create("targetQueue", DISPATCH_QUEUE_SERIAL);//目标队列
+    dispatch_queue_set_specific(targetQueue, kTargetQueue, kTargetQueue, NULL);
+    
+    dispatch_queue_t queue1 = dispatch_queue_create("queue1", DISPATCH_QUEUE_SERIAL);//串行队列
+    dispatch_queue_set_specific(queue1, kQueue1, kQueue1, NULL);
+
+    dispatch_queue_t queue2 = dispatch_queue_create("queu2", DISPATCH_QUEUE_CONCURRENT);//并发队列
+    dispatch_queue_set_specific(queue2, kQueue2, kQueue2, NULL);
+
+    //设置参考
+    dispatch_set_target_queue(queue1, targetQueue);
+    dispatch_set_target_queue(queue2, targetQueue);
+    __block int i = 0;
+    dispatch_block_t block = ^{
+        i ++;
+        if (dispatch_get_specific(kQueue1) == kQueue1) {
+            NSLog(@"%d => onQueue1",i);
+        }
+        if (dispatch_get_specific(kQueue2) == kQueue2) {
+             NSLog(@"%d => onQueue2",i);
+         }
+        if (dispatch_get_specific(kTargetQueue) == kTargetQueue) {
+             NSLog(@"%d => onTargetQueue",i);
+         }
+    };
+    dispatch_async(queue2, ^{
+        block();
+        NSLog(@"job3 in");
+        //下面会死死锁
+//        dispatch_sync(queue2, ^{
+//            block();
+//            NSLog(@"job3 middle");
+//        });
+        
+        //下面会死死锁，targetQueue也可能造成死锁
+//        dispatch_sync(targetQueue, ^{
+//            block();
+//            NSLog(@"job3 middle");
+//        });
+        [NSThread sleepForTimeInterval:2.f];
+        NSLog(@"job3 out");
+    });
+    
+    dispatch_sync(targetQueue, ^{
+        block();
+        NSLog(@"job4 excute");
+    });
+    
+    dispatch_sync(queue1, ^{
+        NSLog(@"job5 excute");
+    });
+    
+    dispatch_async(queue2, ^{
+        block();
+        NSLog(@"job2 in");
+        [NSThread sleepForTimeInterval:1.f];
+        NSLog(@"job2 out");
+    });
+    dispatch_async(queue1, ^{
+        block();
+        NSLog(@"job1 in");
+        [NSThread sleepForTimeInterval:3.f];
+        NSLog(@"job1 out");
+    });
+}
 
 
 - (void)testTargetQueue {

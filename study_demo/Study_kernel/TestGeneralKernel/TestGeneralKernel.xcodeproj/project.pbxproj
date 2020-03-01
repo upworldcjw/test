@@ -1,0 +1,315 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7BBAB2E123E2965900CCE19F /* TestGeneralKernel.c in Sources */ = {isa = PBXBuildFile; fileRef = 7BBAB2E023E2965900CCE19F /* TestGeneralKernel.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7BBAB2DD23E2965900CCE19F /* TestGeneralKernel.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestGeneralKernel.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BBAB2E023E2965900CCE19F /* TestGeneralKernel.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = TestGeneralKernel.c; sourceTree = "<group>"; };
+		7BBAB2E223E2965900CCE19F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BBAB2E923E2B22900CCE19F /* Kernel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kernel.framework; path = System/Library/Frameworks/Kernel.framework; sourceTree = SDKROOT; };
+		7BBAB2EC23E2B2DE00CCE19F /* libsystem_kernel.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsystem_kernel.tbd; path = usr/lib/system/libsystem_kernel.tbd; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7BBAB2DA23E2965900CCE19F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7BBAB2D323E2965900CCE19F = {
+			isa = PBXGroup;
+			children = (
+				7BBAB2DF23E2965900CCE19F /* TestGeneralKernel */,
+				7BBAB2DE23E2965900CCE19F /* Products */,
+				7BBAB2E823E2B22900CCE19F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7BBAB2DE23E2965900CCE19F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7BBAB2DD23E2965900CCE19F /* TestGeneralKernel.kext */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7BBAB2DF23E2965900CCE19F /* TestGeneralKernel */ = {
+			isa = PBXGroup;
+			children = (
+				7BBAB2E023E2965900CCE19F /* TestGeneralKernel.c */,
+				7BBAB2E223E2965900CCE19F /* Info.plist */,
+			);
+			path = TestGeneralKernel;
+			sourceTree = "<group>";
+		};
+		7BBAB2E823E2B22900CCE19F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7BBAB2EC23E2B2DE00CCE19F /* libsystem_kernel.tbd */,
+				7BBAB2E923E2B22900CCE19F /* Kernel.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7BBAB2D823E2965900CCE19F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7BBAB2DC23E2965900CCE19F /* TestGeneralKernel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BBAB2E523E2965900CCE19F /* Build configuration list for PBXNativeTarget "TestGeneralKernel" */;
+			buildPhases = (
+				7BBAB2D823E2965900CCE19F /* Headers */,
+				7BBAB2D923E2965900CCE19F /* Sources */,
+				7BBAB2DA23E2965900CCE19F /* Frameworks */,
+				7BBAB2DB23E2965900CCE19F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestGeneralKernel;
+			productName = TestGeneralKernel;
+			productReference = 7BBAB2DD23E2965900CCE19F /* TestGeneralKernel.kext */;
+			productType = "com.apple.product-type.kernel-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7BBAB2D423E2965900CCE19F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = inke;
+				TargetAttributes = {
+					7BBAB2DC23E2965900CCE19F = {
+						CreatedOnToolsVersion = 11.3;
+					};
+				};
+			};
+			buildConfigurationList = 7BBAB2D723E2965900CCE19F /* Build configuration list for PBXProject "TestGeneralKernel" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7BBAB2D323E2965900CCE19F;
+			productRefGroup = 7BBAB2DE23E2965900CCE19F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7BBAB2DC23E2965900CCE19F /* TestGeneralKernel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7BBAB2DB23E2965900CCE19F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7BBAB2D923E2965900CCE19F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BBAB2E123E2965900CCE19F /* TestGeneralKernel.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7BBAB2E323E2965900CCE19F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		7BBAB2E423E2965900CCE19F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		7BBAB2E623E2965900CCE19F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TestGeneralKernel/Info.plist;
+				MODULE_NAME = inke.meelive.com.TestGeneralKernel;
+				MODULE_START = TestGeneralKernel_start;
+				MODULE_STOP = TestGeneralKernel_stop;
+				MODULE_VERSION = 1.0.0d1;
+				PRODUCT_BUNDLE_IDENTIFIER = inke.meelive.com.TestGeneralKernel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Debug;
+		};
+		7BBAB2E723E2965900CCE19F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TestGeneralKernel/Info.plist;
+				MODULE_NAME = inke.meelive.com.TestGeneralKernel;
+				MODULE_START = TestGeneralKernel_start;
+				MODULE_STOP = TestGeneralKernel_stop;
+				MODULE_VERSION = 1.0.0d1;
+				PRODUCT_BUNDLE_IDENTIFIER = inke.meelive.com.TestGeneralKernel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7BBAB2D723E2965900CCE19F /* Build configuration list for PBXProject "TestGeneralKernel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BBAB2E323E2965900CCE19F /* Debug */,
+				7BBAB2E423E2965900CCE19F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7BBAB2E523E2965900CCE19F /* Build configuration list for PBXNativeTarget "TestGeneralKernel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BBAB2E623E2965900CCE19F /* Debug */,
+				7BBAB2E723E2965900CCE19F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7BBAB2D423E2965900CCE19F /* Project object */;
+}
