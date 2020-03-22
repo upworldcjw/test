@@ -1,0 +1,2 @@
+${PODS_ROOT}/Target Support Files/Pods-TestFBRetainCycleDetector/Pods-TestFBRetainCycleDetector-frameworks.sh
+${BUILT_PRODUCTS_DIR}/FBRetainCycleDetector/FBRetainCycleDetector.framework

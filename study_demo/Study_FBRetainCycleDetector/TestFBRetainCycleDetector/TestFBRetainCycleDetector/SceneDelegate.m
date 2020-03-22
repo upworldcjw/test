@@ -1,4 +1,8 @@
 #import "SceneDelegate.h"
+#import "XXObject.h"
+#import <FBRetainCycleDetector/FBRetainCycleDetector.h>
+#import <objc/runtime.h>
+#include <malloc/malloc.h>
 
 @interface SceneDelegate ()
 
@@ -29,14 +33,31 @@
 
 
 - (void)sceneWillResignActive:(UIScene *)scene {
-    // Called when the scene will move from an active state to an inactive state.
-    // This may occur due to temporary interruptions (ex. an incoming phone call).
+//    XXObject *object = [[XXObject alloc] init];
+//
+//    FBRetainCycleDetector *detector = [FBRetainCycleDetector new];
+//    [detector addCandidate:object];
+//    __unused NSSet *cycles = [detector findRetainCycles];
+//    NSLog(@"cjw cjw %@",cycles);
 }
 
 
 - (void)sceneWillEnterForeground:(UIScene *)scene {
-    // Called as the scene transitions from the background to the foreground.
-    // Use this method to undo the changes made on entering the background.
+    XXObject *object = [[XXObject alloc] init];
+
+    FBRetainCycleDetector *detector = [FBRetainCycleDetector new];
+    [detector addCandidate:object];
+    __unused NSSet *cycles = [detector findRetainCycles];
+//    __unused NSSet *cycles = [detector findRetainCycles];
+    
+    FBObjectiveCObject *layoutObj = [[FBObjectiveCObject alloc] initWithObject:object configuration:[FBObjectGraphConfiguration new]];
+    __unused NSSet *allRetainedObjects = [layoutObj allRetainedObjects];
+
+    NSLog(@"cjw cjw %@",allRetainedObjects);
+    //对象字节对齐是以16字节对齐.而属性为8字节对齐
+    NSLog(@"%lu--------%lu",class_getInstanceSize([object class]), malloc_size((__bridge const void *)(object)));
+//    打印结果为40 ---- ---- 48
+//    NSLog(@"sizeof %d instancesize %d",sizeof(layoutObj),);
 }
 
 
