@@ -33,8 +33,8 @@ struct __attribute__((packed)) BlockLiteral {
 
   // Grab a strong reference to the object, otherwise it can crash while doing
   // nasty stuff on deallocation
+    NS_VALID_UNTIL_END_OF_SCOPE
   __attribute__((objc_precise_lifetime)) id anObject = self.object;
-
   void *blockObjectReference = (__bridge void *)anObject;
   NSArray *allRetainedReferences = FBGetBlockStrongReferences(blockObjectReference);
 
