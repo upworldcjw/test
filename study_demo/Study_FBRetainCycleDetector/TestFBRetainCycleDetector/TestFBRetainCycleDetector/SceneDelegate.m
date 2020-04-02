@@ -43,6 +43,7 @@
 
 
 - (void)sceneWillEnterForeground:(UIScene *)scene {
+    calloc(1, 40);
     struct Struct1 myStruct1;
     struct Struct2 myStruct2;
     NSLog(@"%lu - %lu",sizeof(myStruct1),sizeof(myStruct2));
